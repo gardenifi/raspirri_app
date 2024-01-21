@@ -60,20 +60,21 @@ flutter -v -d <your-android-device-name> run
 
 ## Configuration
 The first time you open the app on your mobile device you will need to configure it.
-1. First connect the app to the Raspirri1V server via **Bluetooth**.
+1. First connect the app to the Raspirri1V server via **Bluetooth**.  
 ![viber_image_2024-01-18_20-30-14-490](https://github.com/makis73/readmeTest/assets/39548053/f4b17b5e-d37e-4c8a-92f6-62c519633fed) ![viber_image_2024-01-18_20-36-16-890](https://github.com/makis73/readmeTest/assets/39548053/9ab57735-9b21-49a4-a232-a1b95d7a0bbf) ![viber_image_2024-01-18_20-36-38-390](https://github.com/makis73/readmeTest/assets/39548053/30c5417b-5302-4cc4-bc36-507e8eac3e0f)
 
-2. Next you must connect RaspirriV1 server with **your local Wi-Fi network**, by choosing the SSID of the Wi-Fi network and inputting the corresponding passkey.![viber_image_2024-01-18_21-27-55-726](https://github.com/makis73/readmeTest/assets/39548053/abc134ba-64d4-4d5c-b84a-b73e225685cf)  ![viber_image_2024-01-18_21-29-07-632](https://github.com/makis73/readmeTest/assets/39548053/e8b739c3-e812-4f7d-8fbc-7f630c36b894)
+2. Next you must connect RaspirriV1 server with **your local Wi-Fi network**, by choosing the SSID of the Wi-Fi network and inputting the corresponding passkey.  
+![viber_image_2024-01-18_21-27-55-726](https://github.com/makis73/readmeTest/assets/39548053/abc134ba-64d4-4d5c-b84a-b73e225685cf) ![viber_image_2024-01-18_21-29-07-632](https://github.com/makis73/readmeTest/assets/39548053/e8b739c3-e812-4f7d-8fbc-7f630c36b894)  
 You are ready!!! Now you can use the app to control irrigation, set schedule and monitor system status.
 
 ## Usage
-1. The first time you open the app, **no valves are enabled**. You may enable a valve on Raspberry Pi and select the corresponding port from the app.
+1. The first time you open the app, **no valves are enabled**. You may enable a valve on Raspberry Pi and select the corresponding port from the app.  
   ![viber_image_2024-01-18_21-29-53-591](https://github.com/makis73/readmeTest/assets/39548053/75c897ef-9ed0-49ce-a412-f3533bd4fcab)
-2. Then you can turn or/off the valve from the toggle button or create a scheduling program for each valve.
+2. Then you can turn on/off the valve from the toggle button or create a scheduling program for each valve.  
    ![viber_image_2024-01-18_21-30-33-940](https://github.com/makis73/readmeTest/assets/39548053/4833395d-4b94-4ee0-81a5-e7a1f8e03514)
-4. To create a program just select **days**, **start time** and **duration**. You may change the name of the valve if you wish,
+4. To create a program just select **days**, **start time** and **duration**. You may change the name of the valve if you wish.  
    ![viber_image_2024-01-20_23-43-10-597](https://github.com/makis73/readmeTest/assets/39548053/2bf36502-29ad-4572-a22b-f1188c658fa6) ![viber_image_2024-01-18_21-31-17-449](https://github.com/makis73/readmeTest/assets/39548053/0ba6b5b1-5186-4127-8769-4df3da16bc60) ![viber_image_2024-01-18_21-31-37-169](https://github.com/makis73/readmeTest/assets/39548053/25f3d232-d1e6-4b4a-a099-5fd9739b8413) ![viber_image_2024-01-18_21-32-32-802](https://github.com/makis73/readmeTest/assets/39548053/73b34673-8e9d-4456-8a4c-d33661adb6f5)
-5. You are ready!
+5. You are ready!  
    ![viber_image_2024-01-18_21-33-12-276](https://github.com/makis73/readmeTest/assets/39548053/6f9f1e74-c109-4adb-9e9f-b124b7e7172f)
 
 ## Adding Language Support
