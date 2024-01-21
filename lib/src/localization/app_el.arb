@@ -1,0 +1,164 @@
+{
+    "appTitle": "RaspirriV1",
+    "@appTitle": {
+      "description": "Ο τίτλος της εφαρμογής"
+    },
+    "fullName":"Θωμάς Μακροδήμος",
+    "@fullName": {
+      "description": "Το πλήρες  όνομα"
+    },
+    "welcomeText": "Καλώς ήρθατε\nστο αυτόματο σύστημα ποτίσματος",
+    "okLabel": "Oκ",
+    "cancelLabel": "Ακύρωση",
+    "yesLabel":"Ναι",
+    "addRemoveButtonLabel": "Διαχείριση βανών",
+    "initializeButtonLabel": "Αρχικοποίηση IoT συσκευής",
+    "initializeDialogTitle": "Αρχικοποίηση",
+    "initializeDialogPrompt": "Είστε σίγουρος ότι θέλετε να αρχικοποιήσετε την IoT συσκευή;",
+    "rebootButtonLabel": "Επανεκκίνηση IoT συσκευής",
+    "rebootDialogTitle": "Επανεκκίνηση",
+    "rebootDialogPrompt":"Είστε σίγουρος ότι θέλετε να επανεκκινήσετε την IoT συσκευή; Τα προγράμματα των βανών δεν θα χαθούν.",
+    "rebootSnackbarContent": "Η IoT συσκευή Θα επανεκκινήση τώρα!",
+    "updateTitle": "Ενημέρωση σέρβερ",
+    "updateDialogPrompt": "Θα γίνει ενημέρωση του σέρβερ της IoT συσκευής. Τα προγράμματα των βανών δεν θα χαθούν.",
+    "updateSnackbarContent": "Ο σέρβερ της IoT συσκευής θα ενημερωθεί τώρα!",
+    "aboutLabel": "Σχετικά",
+    "exitButtonLabel": "Έξοδος",
+    "exitDialogTitle": "Έξοδος",
+    "exitDialogPrompt": "Είστε σίγουρος ότι θέλετε να κλείσετε την εφαρμογή;",
+    "noBluetoothPrompt": "Για την λειτουργία της εφαρμογής είναι απαραίτητη η ενεργοποίηση του bluetooth",
+    "noBluetoothAction": "Ενεργοποίηση Bluetooth",
+    "goToWifiSetupScreenText": "Πατήστε 'Συνέχεια' για να μεταβείτε στην οθόνη ρύθμισης WiFi",
+    "continueButtonLabel": "Συνέχεια",
+    "searchingDeviceTitle": "Αναζήτηση συσκευής IoT...",
+    "searchingDeviceSubtitle": "Κρατήστε το τηλέφωνό σας κοντά στη συσκευή IoT",
+    "connectingDeviceTitle": "Σύνδεση...",
+    "connectingDeviceSubtitle": "Κρατήστε το τηλέφωνό σας κοντά στη συσκευή IoT",
+    "bluetoothConnectionPrompt": "Πριν συνεχίσετε πρέπει να γίνει ρύθμιση της συσκευής ΙοΤ μέσω σύνδεσης Bluetooth",
+    "bluetoothConnectionButtonLabel": "Σύνδεση Bluettooth",
+    "couldNotConnectBluetoothText": "Δεν ήταν δυνατή η σύνδεση με την ΙοΤ συσκευή\n",
+    "tryAgainButtonLabel": "Προσπαθήστε ξανά",
+    "deviceNotFoundTitle": "Η ΙοΤ συσκευή δεν βρέθηκε\nή η σύνδεση διακόπηκε",
+    "deviceNotFoundSubtitle": "Βεβαιωθήτε ότι η ΙοΤ συσκευή είναι ενεργοποιημένη και προσπαθήστε ξανά",
+    "pairingSuccesfulText": "Επιτυχής σύνδεση!",
+    "selectNetworkLabel": "Επιλέξτε από την λίστα το επιθυμητό δίκτυο και εισάγετε τον κωδικό",
+    "selectNetworkHintText": "Επιλέξτε δίκτυο",
+    "enterPasswordLabel": "Εισάγετε τον κωδικό του δικτύου",
+    "connectToNetworkText": "Πατήστε 'Σύνδεση' για να συνδέσετε την συσκευή ΙοΤ στο δίκτυο",
+    "connectToNetworkButtonLabel": "Σύνδεση",
+    "deviceConnectedText": "Η συσκευή ΙοΤ συνδέθηκε στο ίντερνετ επιτυχώς!",
+    "goToMainScreenText": "Είστε έτοιμος! Πατήστε 'Συνέχεια' για να μεταβείτε στην κύρια οθόνη",
+    "deviceCouldNotConnectText": "Η συσκευή IoT δεν μπόρεσε να συνδεθεί στο διαδύκτιο. Δοκιμάστε ξανά",
+    "ifProblemPersistText": "Αν το πρόβλημα συνεχίζει, πάτε πίσω και ελέγξτε το ssid και τον κωδικό δικτύου",
+    "goBackButtonLabel": "Πίσω",
+    "somethingWentWrongText": "Ουπς... κάτι δεν πήγε καλά!",
+    "refreshListLabel": "Ανανέωση λίστας",
+    "waitWhileConnectingText": "Παρακαλώ περιμένετε όσο η συσκευή ΙοΤ συνδέεται στο διαδύκτιο",
+    "waitWhileFetchingNetworksText": "Παρακαλώ περιμένετε όσο γίνεται ανάκτηση των δικτύων",
+    "cantConnectToBrokerText": "Αδυναμία σύνδεσης στον διακομιστή",
+    "makeSureYouAreConnectedText": "Βεβαιωθείτε ότι είστε συνδεδεμένοι στο διαδίκτυο και προσπαθήστε ξανά",
+    "exitAppText": "Αν το πρόβλημα συνεχίζει πιθανόν να υπάρχει πρόβλημα στον διακομιστή. Κλείστε την εφαρμογή και δοκιμάστε αργότερα.",
+    "deviceDisconnectedFromBrokerText": "Η συσκευή ΙοΤ αποσυνδέθηκε από τον διακομιστή",
+    "makeSureDeviceIsPoweredOnText": "Βεβαιωθείται ότι η συσκευή ΙοΤ είναι ενεργοποιημένη",
+    "disconnectedFromBrokerText": "Αποσυνδεθείκατε απο τον διακομιστή",
+    "connectedToBrokerSnackbarText": "Συνδεθήκατε στον διακομιστή",
+    "ifProblemPersistOnDisconnectingFromBrokerText": "Αν το πρόβλημα συνεχίζει κλείστε την εφαρμογή και ανοίξτε την ξανά",
+    "areYouSureDialogTitle": "Είστε σίγουροι;",
+    "changesHaveNotBeenSavedText": "Υπάρχουν αλλαγές που δεν έχουν αποθηκευτεί. Είστε σίγουροι ότι θέλετε να επιστρέψετε;",
+    "selectDaysToIrrigateText": "Επιλέξτε τις ημέρες που θέλετε να ποτίσετε",
+    "editCreateProgramTitle": "Επεξεργασία/Δημιουργία προγράμματος",
+    "valveIsOnDialogTitle": "Η βάνα είναι ανοιχτή!",
+    "valveIsOnDialogContent": "Παρακαλώ κλείστε τη βάνα πριν την αφαιρέσετε από τη συσκευή IoT!",
+    "valveDeletionDialogTitle": "Διαγραφή βάνας",
+    "valveDeletionDialogContent": "Είστε σίγουροι ότι θέλετε να αφαιρέσετε αυτήν τη βάνα; Όλα τα προγράμματα αυτής της βάνας θα διαγραφούν.",
+    "addValveLabel": "Προσθήκη",
+    "removeValveLabel": "Αφαίρεση",
+    "selectStartTimeText": "Επιλογή ώρας έναρξης",
+    "addIrrigationCycleLabel": "Προσθήκη κύκλου ποτίσματος",
+    "deleteProgramButtonLabel": "Διαγραφή προγράμματος",
+    "programDeletionDialogTitle": "Διαγραφή προγράμματος",
+    "programDeletionDialogContent": "Είστε βέβαιοι ότι θέλετε να διαγράψετε αυτό το πρόγραμμα;",
+    "saveButtonLabel": "Αποθήκευση",
+    "cycleDeletionDialogTitle": "Διαγραφή κύκλου",
+    "cycleDeletionDialogContent": "Είστε σίγουροι ότι θέλετε να διαγράψετε αυτό το κύκλο ποτίσματος;",
+    "cycleNumber": "Κύκλος {number}",
+    "@cycleNumber":{
+      "placeholders": {
+        "number": {
+          "type": "int"
+        }
+      }
+    }, 
+    "startLabel": "Έναρξη: ",
+    "durationLabel": "Διάρκεια: ",
+    "noValveText": "Δεν έχει προστεθεί βάνα.\n",
+    "plugValveText": "Συνδέστε μία ή περισσότερες βάνες στην συσκευή IoT και προσθέστε την αντίστοιχη είσοδο πατώντας το παρακάτω κουμπί",
+    "addValvesButtonLabel": "Προσθήκη βάνας",
+    "addRemoveValveBottomSheetTitle": "Προσθήκη/Αφαίρεση βανών",
+    "doneButtonLabel": "Τέλος",
+    "selectDurationTitle": "Επιλογή διάρκειας",
+    "valveNumber": "Βάνα {number}",
+    "@valveNumber":{
+      "placeholders": {
+        "number": {
+          "type": "int"
+        }
+      }
+    },
+    "closesAtText": "Κλείνει {endTime}",
+    "@closesAtText": {
+      "placeholders": {
+        "endTime":{
+          "type": "String"
+        }      
+      }
+    },
+    "nextRunText": "Επόμενο άνοιγμα: ",
+    "noProgramText": "Δεν υπάρχει πρόγραμμα",
+    "programSendSnackbarText": "Το πρόγραμμα στάλθηκε στον διακομιστή",
+    "programCouldNotSendSnackbarText": "Αποτυχία αποστολής προγράμματος στον διακομιστή. Προσπαθείστε ξανά",
+    "programDeletedSnackbarText": "Το πρόγραμμα διαγράφηκε",
+    "createProgramText": "Δημιουργία προγράμματος",
+    "viewEditProgramText": "Προβολή/Επεξεργασία προγράμματος",
+    "collapseButtonLabel": "Σύμπτυξη όλων",
+    "expandButtonLabel": "Ανάπτυξη όλων",
+    "nextRunTodayAtText": "Σήμερα {time}",
+    "@nextRunTodayAtText":{
+      "placeholders": {
+        "time":{
+          "type": "String"
+        }
+      }
+    },
+    "nextRunDayAtText": "{day} {time}",
+    "@nextRunDayAtText":{
+      "placeholders": {
+        "time":{
+          "type": "String"
+        },
+        "day":{
+          "type": "String"
+        }
+      }
+    },
+    "day": "{day, select, Mon{Δευ} Tue{Τρι} Wed{Τετ} Thu{Πεμ} Fri{Παρ} Sat{Σαβ} Sun{Κυρ} other{_}}",
+    "@day":{
+      "placeholders": {
+        "day":{
+          "type": "String"
+        }
+      }
+    }
+  
+      
+
+  
+    
+  
+
+
+
+  
+
+    }
+  

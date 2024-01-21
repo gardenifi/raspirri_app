@@ -1,0 +1,22 @@
+# This is a generated file; do not edit or check into version control.
+flutter_blue_plus=/home/alterego/.pub-cache/hosted/pub.dev/flutter_blue_plus-1.29.11/
+flutter_native_splash=/home/alterego/.pub-cache/hosted/pub.dev/flutter_native_splash-2.3.9/
+package_info_plus=/home/alterego/.pub-cache/hosted/pub.dev/package_info_plus-5.0.1/
+path_provider=/home/alterego/.pub-cache/hosted/pub.dev/path_provider-2.1.1/
+path_provider_android=/home/alterego/.pub-cache/hosted/pub.dev/path_provider_android-2.2.1/
+path_provider_foundation=/home/alterego/.pub-cache/hosted/pub.dev/path_provider_foundation-2.3.1/
+path_provider_linux=/home/alterego/.pub-cache/hosted/pub.dev/path_provider_linux-2.2.1/
+path_provider_windows=/home/alterego/.pub-cache/hosted/pub.dev/path_provider_windows-2.2.1/
+shared_preferences=/home/alterego/.pub-cache/hosted/pub.dev/shared_preferences-2.2.2/
+shared_preferences_android=/home/alterego/.pub-cache/hosted/pub.dev/shared_preferences_android-2.2.1/
+shared_preferences_foundation=/home/alterego/.pub-cache/hosted/pub.dev/shared_preferences_foundation-2.3.4/
+shared_preferences_linux=/home/alterego/.pub-cache/hosted/pub.dev/shared_preferences_linux-2.3.2/
+shared_preferences_web=/home/alterego/.pub-cache/hosted/pub.dev/shared_preferences_web-2.2.2/
+shared_preferences_windows=/home/alterego/.pub-cache/hosted/pub.dev/shared_preferences_windows-2.3.2/
+url_launcher=/home/alterego/.pub-cache/hosted/pub.dev/url_launcher-6.2.3/
+url_launcher_android=/home/alterego/.pub-cache/hosted/pub.dev/url_launcher_android-6.2.2/
+url_launcher_ios=/home/alterego/.pub-cache/hosted/pub.dev/url_launcher_ios-6.2.4/
+url_launcher_linux=/home/alterego/.pub-cache/hosted/pub.dev/url_launcher_linux-3.1.1/
+url_launcher_macos=/home/alterego/.pub-cache/hosted/pub.dev/url_launcher_macos-3.1.0/
+url_launcher_web=/home/alterego/.pub-cache/hosted/pub.dev/url_launcher_web-2.2.3/
+url_launcher_windows=/home/alterego/.pub-cache/hosted/pub.dev/url_launcher_windows-3.1.1/
