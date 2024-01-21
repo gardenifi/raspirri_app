@@ -1,3 +1,7 @@
+[![](https://img.shields.io/badge/Buy%20me%20-coffee!-orange.svg?logo=buy-me-a-coffee&color=795548)](https://www.buymeacoffee.com/tommak)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](./LICENSE.md)
+[![PRs welcome!](https://img.shields.io/badge/contributions-welcome-green.svg?style=flat)](https://github.com/gardenifi/raspirri_server/issues)  
+  
 # RaspirryV1 Control Android app
 
 This app has been created to oversee the [RaspirriV1 server](https://github.com/gardenifi/raspirri_server) system through MQTT communication. Using this application, you can easily oversee and schedule irrigation activities for your garden or agricultural setup. It supports mobile phones and tablets running on Android 5 (Lollipop, API 21) and later versions. The app is developed using [Flutter](https://flutter.dev/).
