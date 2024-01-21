@@ -92,7 +92,7 @@ We understand the importance of catering to diverse audiences. With our app, add
   You can find more details about localization in Flutter [here](https://docs.flutter.dev/ui/accessibility-and-internationalization/internationalization#adding-your-own-localized-messages)
 
 ## License
-This project is licensed under the MIT License. see the LICENSE.md file for details.
+This project is licensed under the MIT License. see the [LICENSE.md](https://github.com/gardenifi/raspirri_app/blob/main/LICENSE.md) file for details.
 
 ## Acknowledgments
 - Thanks for the icon of the app <a href="http://www.freepik.com">Designed by Stock6design / Freepik</a>
