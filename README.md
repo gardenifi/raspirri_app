@@ -65,21 +65,30 @@ flutter -v -d <your-android-device-name> run
 ## Configuration
 The first time you open the app on your mobile device you will need to configure it.
 1. First connect the app to the Raspirri1V server via **Bluetooth**.  
-![viber_image_2024-01-18_20-30-14-490](https://github.com/makis73/readmeTest/assets/39548053/f4b17b5e-d37e-4c8a-92f6-62c519633fed) ![viber_image_2024-01-18_20-36-16-890](https://github.com/makis73/readmeTest/assets/39548053/9ab57735-9b21-49a4-a232-a1b95d7a0bbf) ![viber_image_2024-01-18_20-36-38-390](https://github.com/makis73/readmeTest/assets/39548053/30c5417b-5302-4cc4-bc36-507e8eac3e0f)
+<img src="https://github.com/gardenifi/raspirri_app/assets/39548053/ba91a3d0-cacd-488d-a444-8dac8d98c283" width="180" heigh="400">
+<img src="https://github.com/gardenifi/raspirri_app/assets/39548053/76940407-6a08-4854-896f-d5eb60a2986f)" width="180" heigh="400">
+<img src="https://github.com/gardenifi/raspirri_app/assets/39548053/81c3be6b-041a-4c25-8e27-2edb4ab36d2f](https://github.com/gardenifi/raspirri_app/assets/39548053/8385868d-c768-4b40-a0ab-3982f541099e)" width="180" heigh="400">
+
 
 2. Next you must connect RaspirriV1 server with **your local Wi-Fi network**, by choosing the SSID of the Wi-Fi network and inputting the corresponding passkey.  
-![viber_image_2024-01-18_21-27-55-726](https://github.com/makis73/readmeTest/assets/39548053/abc134ba-64d4-4d5c-b84a-b73e225685cf) ![viber_image_2024-01-18_21-29-07-632](https://github.com/makis73/readmeTest/assets/39548053/e8b739c3-e812-4f7d-8fbc-7f630c36b894)  
-You are ready!!! Now you can use the app to control irrigation, set schedule and monitor system status.
+<img src="https://github.com/gardenifi/raspirri_app/assets/39548053/383fa09e-97a0-4d76-8c35-6bd918b61e91" width="180" heigh="400">
+<img src="https://github.com/gardenifi/raspirri_app/assets/39548053/c2bba894-c489-49fe-ae61-5956f9cd8b50)" width="180" heigh="400">
+  
+3. You are ready!!! Now you can use the app to control irrigation, set schedule and monitor system status.  
 
 ## Usage
 1. The first time you open the app, **no valves are enabled**. You may enable a valve on Raspberry Pi and select the corresponding port from the app.  
-  ![viber_image_2024-01-18_21-29-53-591](https://github.com/makis73/readmeTest/assets/39548053/75c897ef-9ed0-49ce-a412-f3533bd4fcab)
+   <img src="https://github.com/gardenifi/raspirri_app/assets/39548053/964d4391-7124-4a96-9d38-e052f92e727c)" width="180" heigh="400">  
 2. Then you can turn on/off the valve from the toggle button or create a scheduling program for each valve.  
-   ![viber_image_2024-01-18_21-30-33-940](https://github.com/makis73/readmeTest/assets/39548053/4833395d-4b94-4ee0-81a5-e7a1f8e03514)
-4. To create a program just select **days**, **start time** and **duration**. You may change the name of the valve if you wish.  
-   ![viber_image_2024-01-20_23-43-10-597](https://github.com/makis73/readmeTest/assets/39548053/2bf36502-29ad-4572-a22b-f1188c658fa6) ![viber_image_2024-01-18_21-31-17-449](https://github.com/makis73/readmeTest/assets/39548053/0ba6b5b1-5186-4127-8769-4df3da16bc60) ![viber_image_2024-01-18_21-31-37-169](https://github.com/makis73/readmeTest/assets/39548053/25f3d232-d1e6-4b4a-a099-5fd9739b8413) ![viber_image_2024-01-18_21-32-32-802](https://github.com/makis73/readmeTest/assets/39548053/73b34673-8e9d-4456-8a4c-d33661adb6f5)
-5. You are ready!  
-   ![viber_image_2024-01-18_21-33-12-276](https://github.com/makis73/readmeTest/assets/39548053/6f9f1e74-c109-4adb-9e9f-b124b7e7172f)
+   <img src="https://github.com/gardenifi/raspirri_app/assets/39548053/3d25327a-9775-4c25-ba2a-b68d997b2e38)" width="180" heigh="400">  
+3. To create a program just select **days**, **start time** and **duration**. You may change the name of the valve if you wish.  
+   <img src="https://github.com/gardenifi/raspirri_app/assets/39548053/04e9d243-13b3-4d05-ba30-1778eafa07d1)" width="180" heigh="400">
+   <img src="https://github.com/gardenifi/raspirri_app/assets/39548053/457d5ae5-290c-4b42-9014-19faa257c65d)" width="180" heigh="400">
+   <img src="https://github.com/gardenifi/raspirri_app/assets/39548053/548a35e1-283d-4155-8061-f3d806f10513)" width="180" heigh="400">
+   <img src="https://github.com/gardenifi/raspirri_app/assets/39548053/84571d1f-5014-48c3-ab94-a3a8a063e675)" width="180" heigh="400">
+6. You are ready!  
+   <img src="https://github.com/gardenifi/raspirri_app/assets/39548053/a696dc30-4f0f-4c1e-9e0a-3f2f63f821fb)" width="180" heigh="400">
+
 
 ## Adding Language Support
 We understand the importance of catering to diverse audiences. With our app, adding support for any language is a breeze. Follow these simple steps to make your app accessible to users worldwide:
