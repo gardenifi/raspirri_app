@@ -37,8 +37,8 @@ class MqttRepository {
     _client.keepAlivePeriod = 5;
     _client.secure = true;
     _client.onDisconnected = onDisconnected;
-    _client.onConnected = _onConnected;
-    _client.onSubscribed = _onSubscribed;
+    _client.onConnected = onConnected;
+    _client.onSubscribed = onSubscribed;
     _client.connectionMessage = connectMessage;
     _client.autoReconnect = false;
     _client.onBadCertificate = (dynamic certificateData) => true;
@@ -48,7 +48,7 @@ class MqttRepository {
   Future<void> connectClient(
       MqttServerClient client, String username, String password) async {
     try {
-      await _client.connect(username, password);
+      await client.connect(username, password);
     } on NoConnectionException catch (_) {
       // Raised by the client when connection fails - Rethrow to Controller
       rethrow;
@@ -63,7 +63,7 @@ class MqttRepository {
   }
 
   void subscribeToTopic(MqttClient client, String topicName) {
-    _client.subscribe(topicName, MqttQos.atMostOnce);
+    client.subscribe(topicName, MqttQos.atLeastOnce);
   }
 
   void publishMessage(String topic, MqttQos qos, String message, bool retain) {
@@ -79,7 +79,7 @@ class MqttRepository {
     }
   }
 
-  void _onConnected() {
+  void onConnected() {
     connectionState = MqttCurrentConnectionState.connected;
     ref.read(disconnectedProvider.notifier).state = false;
     ref.read(connectedProvider.notifier).state = true;
@@ -91,7 +91,7 @@ class MqttRepository {
     ref.read(connectedProvider.notifier).state = false;
   }
 
-  void _onSubscribed(String topic) {
+  void onSubscribed(String topic) {
     subscriptionState = MqttSubscriptionState.subscribed;
   }
 }

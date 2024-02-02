@@ -67,7 +67,7 @@ class _CyclesWidgetState extends ConsumerState<CyclesWidget> {
                       TimeOfDay? time = await showTimePicker(
                         context: context,
                         initialTime:
-                            convertStringToTimeOfDay(context, cycles[index].start),
+                            convertStringToTimeOfDay(cycles[index].start),
                         barrierColor: Colors.white,
                         barrierDismissible: false,
                       );
