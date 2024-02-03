@@ -7,7 +7,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 class BluetoothRepository {
   BluetoothRepository() : super();
 
-  // The stream to watch Bluetooth adpater state
+  // The stream to watch Bluetooth adapter state
   Stream<BluetoothAdapterState> adapterStateChanges() => FlutterBluePlus.adapterState;
 
   // The scan results stream

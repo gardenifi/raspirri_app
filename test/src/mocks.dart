@@ -1,8 +1,11 @@
 import 'package:flutter_blue_plus/flutter_blue_plus.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:mocktail/mocktail.dart';
+import 'package:new_gardenifi_app/src/features/bluetooth/data/bluetooth_repository.dart';
 
 class MockRef<T> extends Mock implements Ref<T> {}
+class MockBluetoothRepo extends Mock implements BluetoothRepository {}
+class MockFlutterBluePlus extends Mock implements FlutterBluePlus {}
 
 
 /// Wrapper for FlutterBluePlus in order to easily mock it

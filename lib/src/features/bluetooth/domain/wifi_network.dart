@@ -21,6 +21,6 @@ class WifiNetwork {
       };
   @override
   String toString() {
-    return '{$id, $ssid, $password?? ""}';
+    return '{$id, $ssid, $password}';
   }
 }
