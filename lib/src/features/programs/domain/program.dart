@@ -1,3 +1,5 @@
+import 'package:flutter/foundation.dart';
+
 import 'package:new_gardenifi_app/src/features/programs/domain/cycle.dart';
 
 class Program {
@@ -15,7 +17,7 @@ class Program {
     required this.tz_offset,
   });
 
-  List<String>? listOfDays;
+  // List<String>? listOfDays; // TODO: Delete this line
 
   factory Program.fromJson(Map<String, dynamic> data) {
     final out = data['out'];
@@ -57,4 +59,25 @@ class Program {
   @override
   String toString() =>
       'Program(out: $out, name: $name, days: $days, cycles: $cycles, tz_offset: $tz_offset)';
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) return true;
+  
+    return other is Program &&
+      other.out == out &&
+      other.name == name &&
+      other.days == days &&
+      listEquals(other.cycles, cycles) &&
+      other.tz_offset == tz_offset;
+  }
+
+  @override
+  int get hashCode {
+    return out.hashCode ^
+      name.hashCode ^
+      days.hashCode ^
+      cycles.hashCode ^
+      tz_offset.hashCode;
+  }
 }

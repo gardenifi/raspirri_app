@@ -28,11 +28,11 @@ class MqttBroker {
       other.pass == pass;
   }
 
-  @override
-  int get hashCode {
-    return host.hashCode ^
-      port.hashCode ^
-      user.hashCode ^
-      pass.hashCode;
-  }
+  // @override
+  // int get hashCode {
+  //   return host.hashCode ^
+  //     port.hashCode ^
+  //     user.hashCode ^
+  //     pass.hashCode;
+  // }
 }

@@ -24,7 +24,7 @@ class WifiNetworks {
         jsonObject['nets'].map((network) => WifiNetwork.fromJson(network)));
     return WifiNetworks(page as int, pages as int, nets, hwId, mqttBroker);
   }
-
+  // TODO: No need for this method
   // Map<String, dynamic> toJson() => {
   //       'page': page,
   //       'pages': pages,
