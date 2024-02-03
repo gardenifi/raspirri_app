@@ -1,6 +1,8 @@
 // ignore_for_file: use_build_context_synchronously
 
+
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:new_gardenifi_app/src/common_widgets/alert_dialogs.dart';
 import 'package:new_gardenifi_app/src/common_widgets/screen_upper_portrait.dart';
@@ -30,7 +32,7 @@ class CreateProgramScreen extends ConsumerStatefulWidget {
 
 class __CreateProgramScreenStateState extends ConsumerState<CreateProgramScreen> {
   bool editName = false;
-
+  String updatedName = '';
   TextEditingController nameController = TextEditingController();
 
   @override
@@ -138,6 +140,7 @@ class __CreateProgramScreenStateState extends ConsumerState<CreateProgramScreen>
                         SaveProgramButton(
                             widget: widget,
                             ref: ref,
+                            name: updatedName,
                             daysSelected: daysSelected,
                             cyclesOfCurrentProgram: cyclesOfCurrentProgram,
                             currentSchedule: currentSchedule,
@@ -200,6 +203,7 @@ class __CreateProgramScreenStateState extends ConsumerState<CreateProgramScreen>
             SaveProgramButton(
                 widget: widget,
                 ref: ref,
+                name: updatedName,
                 daysSelected: daysSelected,
                 cyclesOfCurrentProgram: cyclesOfCurrentProgram,
                 currentSchedule: currentSchedule,
@@ -232,11 +236,13 @@ class __CreateProgramScreenStateState extends ConsumerState<CreateProgramScreen>
               ? SizedBox(
                   width: 250,
                   child: TextField(
+                    maxLengthEnforcement: MaxLengthEnforcement.enforced,
+                    enabled: true,
                     controller: nameController..text = widget.name,
                     style: TextStyles.mediumNormal.copyWith(color: Colors.green),
                     autofocus: true,
                     onSubmitted: (value) {
-                      widget.name = nameController.text;
+                      updatedName = nameController.text;
                       setState(() {
                         editName = false;
                       });
@@ -247,7 +253,7 @@ class __CreateProgramScreenStateState extends ConsumerState<CreateProgramScreen>
               : Expanded(
                   child: Center(
                     child: Text(
-                      widget.name,
+                      updatedName.isEmpty ? widget.name : updatedName,
                       style: TextStyles.mediumBold.copyWith(color: Colors.green),
                     ),
                   ),
