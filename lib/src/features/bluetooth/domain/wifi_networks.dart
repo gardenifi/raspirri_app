@@ -25,11 +25,11 @@ class WifiNetworks {
     return WifiNetworks(page as int, pages as int, nets, hwId, mqttBroker);
   }
 
-  Map<String, dynamic> toJson() => {
-        'page': page,
-        'pages': pages,
-        'nets': nets,
-      };
+  // Map<String, dynamic> toJson() => {
+  //       'page': page,
+  //       'pages': pages,
+  //       'nets': nets,
+  //     };
 
   @override
   String toString() {

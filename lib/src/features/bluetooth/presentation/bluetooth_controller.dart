@@ -204,4 +204,3 @@ final ssidProvider = StateProvider<String>((ref) {
 final passwordProvider = StateProvider<String>((ref) {
   return '';
 });
-

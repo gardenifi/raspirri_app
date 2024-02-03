@@ -23,4 +23,17 @@ class WifiNetwork {
   String toString() {
     return '{$id, $ssid, $password}';
   }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) return true;
+  
+    return other is WifiNetwork &&
+      other.id == id &&
+      other.ssid == ssid &&
+      other.password == password;
+  }
+
+  // @override
+  // int get hashCode => id.hashCode ^ ssid.hashCode ^ password.hashCode;
 }

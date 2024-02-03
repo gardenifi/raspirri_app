@@ -16,4 +16,23 @@ class MqttBroker {
   String toString() {
     return '{$host, $port, $user, $pass}';
   }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) return true;
+  
+    return other is MqttBroker &&
+      other.host == host &&
+      other.port == port &&
+      other.user == user &&
+      other.pass == pass;
+  }
+
+  @override
+  int get hashCode {
+    return host.hashCode ^
+      port.hashCode ^
+      user.hashCode ^
+      pass.hashCode;
+  }
 }
