@@ -1,10 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:mocktail/mocktail.dart';
-import 'package:new_gardenifi_app/src/constants/mqtt_constants.dart';
 import 'package:new_gardenifi_app/src/features/mqtt/presentation/mqtt_controller.dart';
-import 'package:new_gardenifi_app/src/features/programs/presentation/widgets/valves_widget.dart';
 import 'package:new_gardenifi_app/src/root_app.dart';
 
 // Creating a mock MqttController which returns AsyncData
@@ -57,6 +54,23 @@ class Robot {
     );
     await tester.pump();
   }
+
+  // Future<void> openProgramScreenForCheckingConnection() async {
+  //   await tester.pumpWidget(
+  //     ProviderScope(
+  //       overrides: [
+  //         valvesTopicProvider.overrideWith((ref) => ['1', '2', '3']),
+  //         mqttControllerProvider.overrideWith((ref) => MockMqttControllerWithData(ref)),
+  //         disconnectedProvider.overrideWith((ref) => true)
+  //       ],
+  //       child: const MaterialApp(
+  //         home: RootApp(deviceHasBeenInitialized: true),
+  //       ),
+  //     ),
+  //   );
+  //   await tester.pumpAndSettle();
+
+  // }
 
   void expectFindCircularProgressIndicator() {
     final finder = find.byType(CircularProgressIndicator);

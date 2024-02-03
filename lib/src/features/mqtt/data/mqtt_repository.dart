@@ -25,7 +25,6 @@ class MqttRepository {
   MqttRepository(this.ref);
   final Ref ref;
   late MqttCurrentConnectionState connectionState = MqttCurrentConnectionState.idle;
-  late MqttSubscriptionState subscriptionState = MqttSubscriptionState.idle;
   late MqttServerClient _client;
 
   MqttServerClient initializeMqttClient(String host, int port, String identifier) {
@@ -38,7 +37,6 @@ class MqttRepository {
     _client.secure = true;
     _client.onDisconnected = onDisconnected;
     _client.onConnected = onConnected;
-    _client.onSubscribed = onSubscribed;
     _client.connectionMessage = connectMessage;
     _client.autoReconnect = false;
     _client.onBadCertificate = (dynamic certificateData) => true;
@@ -89,10 +87,6 @@ class MqttRepository {
     connectionState = MqttCurrentConnectionState.disconnected;
     ref.read(disconnectedProvider.notifier).state = true;
     ref.read(connectedProvider.notifier).state = false;
-  }
-
-  void onSubscribed(String topic) {
-    subscriptionState = MqttSubscriptionState.subscribed;
   }
 }
 
