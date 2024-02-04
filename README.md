@@ -11,7 +11,8 @@ This app has been created to oversee the [RaspirriV1 server](https://github.com/
   - [Table of Contents](#table-of-contents)
   - [Features](#features)
   - [Prerequisites](#prerequisites)
-  - [Installation](#installation)
+  - [Run on device](#run-on-device)
+  - [Build and install an apk](#build-and-install-an-apk)
   - [About app](#about-app)
   - [Configuration](#configuration)
   - [Usage](#usage)
@@ -35,7 +36,7 @@ Before using the Flutter Irrigation Control App, ensure the following exist:
 - [RaspirriV1 server](https://github.com/gardenifi/raspirri_server/tree/main) installed and configured on a Raspberry Pi.
 - Internet and Bluetooth connectivity for both the mobile device and the Raspberry Pi.
 
-## Installation
+## Run on device
 1. Clone the repository in your local machine:
 ```
 git clone https://github.com/gardenifi/raspirri_app.git
@@ -56,6 +57,33 @@ flutter devices
 ```
 flutter -v -d <your-android-device-name> run
 ```
+
+## Build and install an apk
+You can also build an apk and install the app to your device  
+1. Clone the repository in your local machine:
+```
+git clone https://github.com/gardenifi/raspirri_app.git
+```
+2. Navigate to the project directory:
+```
+cd raspirri_app
+```
+3. Install dependencies
+```
+flutter pub get
+```
+4. Run the below code:
+```
+flutter build apk --split-per-abi
+```
+This command results in three APK files:  
+    - raspirri_app/build/app/outputs/apk/release/app-armeabi-v7a-release.apk  
+    - raspirri_app/build/app/outputs/apk/release/app-arm64-v8a-release.apk  
+    - raspirri_app/build/app/outputs/apk/release/app-x86_64-release.apk    
+    
+5. Transfer the appropriate apk (usualy v8a for newer android devices) to your device and install it. Or you can just run ``` flutter install ```
+
+
 ## About app
 - App is written in **Flutter framework** using **Dart** programming language.
 - App utilizes [Riverpod](https://riverpod.dev/) package to manage the state seamlessly and efficiently. Riverpod makes it easy to organize, share, and update the application's state, ensuring a smooth and maintainable development experience.
