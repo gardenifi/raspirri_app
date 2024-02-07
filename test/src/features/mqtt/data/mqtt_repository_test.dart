@@ -24,13 +24,17 @@ void main() {
   const testHost = 'abcd';
   const testPort = 8989;
   const testIdentifier = 'test';
+  late MqttRepository mqttRepository;
+
+  setUp(() {
+    final container = ProviderContainer();
+    mqttRepository = container.read(repositoryProvider);
+  });
   test(
     'initialize client return a MqttServerClient with given arguments',
     () {
       // setup
       final client = MqttServerClient.withPort(testHost, testIdentifier, testPort);
-      final mockRef = MockRef();
-      final mqttRepository = MqttRepository(mockRef);
       // run
       final result =
           mqttRepository.initializeMqttClient(testHost, testPort, testIdentifier);
@@ -46,8 +50,6 @@ void main() {
     final mockServerClient = MockServerClient(testHost, testIdentifier);
     final status = MqttClientConnectionStatus();
     status.state = MqttConnectionState.connected;
-    final mockRef = MockRef();
-    final mqttRepository = MqttRepository(mockRef);
 
     // stubbing
     when(() => mockServerClient.connect('user', '1234')).thenAnswer((_) {
@@ -63,8 +65,6 @@ void main() {
   test('connect client fails and return exception', () async {
     // setup
     final mockServerClient = MockServerClient(testHost, testIdentifier);
-    final mockRef = MockRef();
-    final mqttRepository = MqttRepository(mockRef);
     final exception = Exception('connection failed');
     when(() => mockServerClient.connect('user', '1234')).thenThrow(exception);
     // verify
@@ -78,8 +78,6 @@ void main() {
     // setup
     final mockServerClient = MockServerClient(testHost, testIdentifier);
     final status = MqttClientConnectionStatus();
-    final mockRef = MockRef();
-    final mqttRepository = MqttRepository(mockRef);
     status.state = MqttConnectionState.disconnected;
 
     when(() => mockServerClient.disconnect()).thenReturn(status);
@@ -91,8 +89,6 @@ void main() {
   test('subscribe method is called', () {
     // setup
     final mockClient = MockClient(testHost, testIdentifier);
-    final mockRef = MockRef();
-    final mqttRepository = MqttRepository(mockRef);
     final subscription = Subscription();
     when(() => mockClient.subscribe('topic', MqttQos.atLeastOnce))
         .thenReturn(subscription);
@@ -102,7 +98,8 @@ void main() {
     verify(() => mockClient.subscribe('topic', MqttQos.atLeastOnce)).called(1);
   });
 
-  test('When connecting to broker change the state of connectedProvider to true ', () async {
+  test('When connecting to broker change the state of connectedProvider to true ',
+      () async {
     // Create a ProviderContainer for testing
     final container = createContainer();
 
@@ -112,7 +109,7 @@ void main() {
 
     // Get a ref object for connectedProvider
     final ref = container.readProviderElement(connectedProvider);
-  
+
     final mqttRepository = MqttRepository(ref);
 
     // Call onConnected method and expect connectedProvider state to be true
@@ -121,7 +118,8 @@ void main() {
     expect(finalState, true);
   });
 
-  test('When disconnecting from broker change the state of disconnectedProvider to true', () async {
+  test('When disconnecting from broker change the state of disconnectedProvider to true',
+      () async {
     // Create a ProviderContainer for testing
     final container = createContainer();
 
@@ -131,7 +129,7 @@ void main() {
 
     // Get a ref object for connectedProvider
     final ref = container.readProviderElement(disconnectedProvider);
-  
+
     final mqttRepository = MqttRepository(ref);
 
     // Call onDisconnected method and expect disconnectedProvider state to be true

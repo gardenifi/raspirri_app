@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'dart:convert';
+import 'dart:developer';
 import 'dart:io';
 
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -85,6 +86,7 @@ class MqttController extends StateNotifier<AsyncValue<void>> {
 
         List<String> listOfValvesFromBroker =
             (jsonDecode(correctedMessage) as List<dynamic>).cast<String>();
+
         ref.read(valvesTopicProvider.notifier).state = listOfValvesFromBroker;
       }
 
@@ -92,6 +94,7 @@ class MqttController extends StateNotifier<AsyncValue<void>> {
         final String replacedString = message.replaceAll('\'', '"');
 
         final Map<String, dynamic> mes = jsonDecode(replacedString);
+
         ref.read(statusTopicProvider.notifier).state = mes;
       }
 
@@ -99,6 +102,8 @@ class MqttController extends StateNotifier<AsyncValue<void>> {
         final String replacedString = message.replaceAll('\'', '"');
 
         final Map<String, dynamic> mes = jsonDecode(replacedString);
+        //! delete line
+        log('MqttController:: state: $mes');
         ref.read(metadataTopicProvider.notifier).state = mes;
       }
 
@@ -126,15 +131,11 @@ class MqttController extends StateNotifier<AsyncValue<void>> {
   }
 
   void rebootDevice() {
-    ref
-        .read(mqttControllerProvider.notifier)
-        .sendMessage(commandTopic, MqttQos.atLeastOnce, jsonEncode(rebootCmd), false);
+    sendMessage(commandTopic, MqttQos.atLeastOnce, jsonEncode(rebootCmd), false);
   }
 
   void updateSever() {
-    ref
-        .read(mqttControllerProvider.notifier)
-        .sendMessage(commandTopic, MqttQos.atLeastOnce, jsonEncode(updateCmd), false);
+    sendMessage(commandTopic, MqttQos.atLeastOnce, jsonEncode(updateCmd), false);
   }
 }
 
