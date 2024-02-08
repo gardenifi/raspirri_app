@@ -25,22 +25,22 @@ class MqttRepository {
   MqttRepository(this.ref);
   final Ref ref;
   late MqttCurrentConnectionState connectionState = MqttCurrentConnectionState.idle;
-  late MqttServerClient _client;
+  late MqttServerClient client;
 
   MqttServerClient initializeMqttClient(String host, int port, String identifier) {
     final MqttConnectMessage connectMessage =
         MqttConnectMessage().withClientIdentifier(identifier);
 
-    _client = MqttServerClient.withPort(host, identifier, port);
-    _client.logging(on: true);
-    _client.keepAlivePeriod = 5;
-    _client.secure = true;
-    _client.onDisconnected = onDisconnected;
-    _client.onConnected = onConnected;
-    _client.connectionMessage = connectMessage;
-    _client.autoReconnect = false;
-    _client.onBadCertificate = (dynamic certificateData) => true;
-    return _client;
+    client = MqttServerClient.withPort(host, identifier, port);
+    client.logging(on: true);
+    client.keepAlivePeriod = 5;
+    client.secure = true;
+    client.onDisconnected = onDisconnected;
+    client.onConnected = onConnected;
+    client.connectionMessage = connectMessage;
+    client.autoReconnect = false;
+    client.onBadCertificate = (dynamic certificateData) => true;
+    return client;
   }
 
   Future<void> connectClient(
@@ -73,7 +73,7 @@ class MqttRepository {
       builder.addBuffer(buf);
 
       final payload = builder.payload;
-      _client.publishMessage(topic, qos, payload!, retain: retain);
+      client.publishMessage(topic, qos, payload!, retain: retain);
     }
   }
 

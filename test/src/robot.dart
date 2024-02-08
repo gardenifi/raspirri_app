@@ -97,4 +97,6 @@ class Robot {
     final editProgramText = find.text('Edit/Create program');
     expect(editProgramText, findsOneWidget);
   }
+
+  pumpBluetoothConnectionScreen() {}
 }

@@ -102,8 +102,6 @@ class MqttController extends StateNotifier<AsyncValue<void>> {
         final String replacedString = message.replaceAll('\'', '"');
 
         final Map<String, dynamic> mes = jsonDecode(replacedString);
-        //! delete line
-        log('MqttController:: state: $mes');
         ref.read(metadataTopicProvider.notifier).state = mes;
       }
 

@@ -1,5 +1,5 @@
 import 'package:mqtt_client/mqtt_client.dart';
-
+// A method to create a custom stream simulating the stream with messages from broker
 Stream<List<MqttReceivedMessage<MqttMessage>>> createStream(
     {required String topic, required String text}) {
   MqttClientPayloadBuilder builder = MqttClientPayloadBuilder();

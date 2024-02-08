@@ -125,6 +125,7 @@ class BluetoothController extends StateNotifier<AsyncValue<BluetoothDevice?>> {
     // read the response from device
     page1response = await readFromDevice(mainCharacteristic!);
     String stringOfWifis = String.fromCharCodes(page1response);
+    log(stringOfWifis);
     var networksFromJson = WifiNetworks.fromJson(stringOfWifis);
     listOfWifiNetwork += networksFromJson.nets;
 
