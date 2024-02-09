@@ -1,26 +1,21 @@
-import 'package:flutter_blue_plus/flutter_blue_plus.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:mocktail/mocktail.dart';
-import 'package:new_gardenifi_app/src/features/bluetooth/data/bluetooth_repository.dart';
-import 'package:new_gardenifi_app/src/features/bluetooth/presentation/bluetooth_controller.dart';
 
-import '../../../../../robot.dart';
+import '../../../bluetooth_robot.dart';
 
 void main() {
-  testWidgets('bluetooth connection screen ...', (tester) async {
-    // final repository = MockBluetoothRepository();
+  testWidgets('bluetooth connection screen when bluetooth is On', (tester) async {
+    final r = BluetoothRobot(tester);
+    await r.pumpBluetoothConnectionScreen(bluetoothIsOn: true);
 
-    // final container = ProviderContainer();
-    // final controller = container.read(bluetoothControllerProvider.notifier);
-    // final r = Robot(tester: tester);
-    // await r.pumpBluetoothConnectionScreen();
-    // await tester.pumpAndSettle();
+    final finder = find.text('IoT Device not found \nor connection with ΙοΤ device lost');
+    expect(finder, findsOneWidget);
+  });
 
-    // when(() => repository.scanStream)
-    //     .thenAnswer((_) => Stream<List<MockScanResult>>.value([]));
+  testWidgets('bluetooth connection screen when bluetooth is Off', (tester) async {
+    final r = BluetoothRobot(tester);
+    await r.pumpBluetoothConnectionScreen(bluetoothIsOn: false);
 
-    // expectLater(controller.state, emitsAnyOf([const AsyncLoading<void>()]));
+    final finder = find.text('Turn on Bluetooth');
+    expect(finder, findsOneWidget);
   });
 }
-

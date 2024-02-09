@@ -98,5 +98,4 @@ class Robot {
     expect(editProgramText, findsOneWidget);
   }
 
-  pumpBluetoothConnectionScreen() {}
 }
