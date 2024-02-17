@@ -72,7 +72,7 @@ class _BluetoothConnectinScreenState extends ConsumerState<BluetoothConnectionSc
                     showLogo: true,
                   ),
                   !isBluetoothOn
-                      ? Expanded(child: NoBluetoothWidget(ref: ref))
+                      ? const Expanded(child: NoBluetoothWidget())
                       : Expanded(
                           child: Column(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,

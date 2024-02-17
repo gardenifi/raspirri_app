@@ -10,6 +10,7 @@ import 'package:new_gardenifi_app/src/features/bluetooth/domain/wifi_network.dar
 import 'package:new_gardenifi_app/src/features/bluetooth/presentation/bluetooth_controller.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
+import '../../../commons.dart';
 import '../../../mocks.dart';
 import '../../../partial_mock_bluetoothcontroller_for_testing.dart';
 
@@ -118,10 +119,7 @@ void main() {
   test('readFromDevice method calls repositorys readFromCharacteristic() method',
       () async {
     // setup
-    final guid = Guid('1a2b3c4d');
-    const id = DeviceIdentifier('raspirriv1');
-    final char = BluetoothCharacteristic(
-        remoteId: id, serviceUuid: guid, characteristicUuid: guid);
+    final char = fakeBluetoothCharacteristic;
 
     var container = ProviderContainer(
         overrides: [bluetoothRepositoryProvider.overrideWithValue(repository)]);
@@ -141,10 +139,8 @@ void main() {
 
   test('readFromDevice method if mainCharacteristic is null return []', () async {
     // setup
-    final guid = Guid('1a2b3c4d');
-    const id = DeviceIdentifier('raspirriv1');
-    final char = BluetoothCharacteristic(
-        remoteId: id, serviceUuid: guid, characteristicUuid: guid);
+   
+    final char = fakeBluetoothCharacteristic;
 
     var container = ProviderContainer(
         overrides: [bluetoothRepositoryProvider.overrideWithValue(repository)]);
@@ -165,10 +161,7 @@ void main() {
 
   test('writeToDevice method calls repositorys writeToCharacteristic() method', () async {
     // setup
-    final guid = Guid('1a2b3c4d');
-    const id = DeviceIdentifier('raspirriv1');
-    final char = BluetoothCharacteristic(
-        remoteId: id, serviceUuid: guid, characteristicUuid: guid);
+    final char = fakeBluetoothCharacteristic;
 
     var container = ProviderContainer(
         overrides: [bluetoothRepositoryProvider.overrideWithValue(repository)]);
@@ -192,10 +185,7 @@ void main() {
 
   test('Fetch networks', () async {
     // setup
-    final guid = Guid('1a2b3c4d');
-    const id = DeviceIdentifier('raspirriv1');
-    final char = BluetoothCharacteristic(
-        remoteId: id, serviceUuid: guid, characteristicUuid: guid);
+    final char = fakeBluetoothCharacteristic;
 
     SharedPreferences.setMockInitialValues({
       'hwId': '',
@@ -229,10 +219,7 @@ void main() {
 
   test('sendNetworkCredentialsToDevice', () async {
     // setup
-    final guid = Guid('1a2b3c4d');
-    const id = DeviceIdentifier('raspirriv1');
-    final char = BluetoothCharacteristic(
-        remoteId: id, serviceUuid: guid, characteristicUuid: guid);
+    final char = fakeBluetoothCharacteristic;
 
     var container = ProviderContainer(
         overrides: [bluetoothRepositoryProvider.overrideWithValue(repository)]);

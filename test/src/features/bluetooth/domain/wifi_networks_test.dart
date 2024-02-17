@@ -3,6 +3,8 @@ import 'package:new_gardenifi_app/src/features/bluetooth/domain/wifi_network.dar
 import 'package:new_gardenifi_app/src/features/bluetooth/domain/wifi_networks.dart';
 import 'package:new_gardenifi_app/src/features/mqtt/domain/mqtt_broker.dart';
 
+import '../../../commons.dart';
+
 void main() {
   group('WifiNetworks', () {
     test('WifiNetworks.fromJson should create a WifiNetworks instance from a json', () {
@@ -33,17 +35,7 @@ void main() {
         'toString method should return a formatted string representation of WifiNetworks',
         () {
       // setup
-      final wifiNetworks = WifiNetworks(
-          2,
-          2,
-          [WifiNetwork(8, 'DIRECT-9A-HP DeskJet 4530 series', '')],
-          '100000005fd258b6',
-          MqttBroker.fromJson({
-            'host': 'c12571319ea54c799a95ff68a20755c9.s1.eu.hivemq.cloud',
-            'port': 8883,
-            'user': 'raspirriv1',
-            'pass': 'R@sp1r1v119785923'
-          }));
+      final wifiNetworks = fakeWifiNetworks;
       // run
       const String expected =
           "{2, 2, [{8, DIRECT-9A-HP DeskJet 4530 series, }], 100000005fd258b6, {c12571319ea54c799a95ff68a20755c9.s1.eu.hivemq.cloud, 8883, raspirriv1, R@sp1r1v119785923} ";

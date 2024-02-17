@@ -7,7 +7,6 @@ import 'package:new_gardenifi_app/src/constants/gaps.dart';
 import 'package:new_gardenifi_app/src/constants/text_styles.dart';
 import 'package:new_gardenifi_app/src/features/programs/presentation/screens/programs_screen.dart';
 import 'package:new_gardenifi_app/src/localization/app_localizations_provider.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
 class ConnectionWifiSuccessWidget extends ConsumerWidget {
   const ConnectionWifiSuccessWidget({
@@ -59,8 +58,8 @@ class ConnectionWifiSuccessWidget extends ConsumerWidget {
             buttonText: loc.continueButtonLabel,
             ref: ref,
             callback: () async {
-              SharedPreferences prefs = await SharedPreferences.getInstance();
-              prefs.setBool('initialized', true);
+              // SharedPreferences prefs = await SharedPreferences.getInstance();
+              // prefs.setBool('initialized', true);
               Navigator.of(context).pushReplacement(MaterialPageRoute(
                 builder: (context) => const ProgramsScreen(),
               ));

@@ -3,6 +3,7 @@ import 'package:flutter_blue_plus/flutter_blue_plus.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
+import 'package:new_gardenifi_app/src/common_widgets/no_bluetooth_widget.dart';
 import 'package:new_gardenifi_app/src/features/bluetooth/data/bluetooth_repository.dart';
 import 'package:new_gardenifi_app/src/features/bluetooth/presentation/bluetooth_connection/screens/bluetooth_connection_screen.dart';
 import 'package:new_gardenifi_app/src/features/bluetooth/presentation/bluetooth_controller.dart';
@@ -31,30 +32,30 @@ class BluetoothRobot {
     await tester.pumpAndSettle();
   }
 
-  Future<void> pumpBluetoothConnectionScreen({required bool bluetoothIsOn}) async {
-    final mockBluetoothController =
-        MockBluetoothController(const AsyncData<BluetoothDevice?>(null));
-
-    when(() => mockBluetoothController.startScanStream())
-        .thenAnswer((_) => Future.value());
-
-    when(() => mockBluetoothController.startScan()).thenAnswer((_) => Future.value());
-
-    when(() => mockBluetoothController.stopScan()).thenAnswer((_) => Future.value());
+  Future<void> pumpBluetoothConnectionScreen(
+      {required bool bluetoothIsOn,
+      required MockBluetoothController bluetoothController,
+      required BluetoothConnectionState? deviceConnectionState,
+      bool pumpAndSettle = true,
+      List<NavigatorObserver> observer = const []}) async {
     await tester.pumpWidget(ProviderScope(
         overrides: [
-          bluetoothControllerProvider.overrideWith((ref) => mockBluetoothController),
+          bluetoothControllerProvider.overrideWith((ref) => bluetoothController),
+          connectionProvider.overrideWith((ref) => Stream.value(deviceConnectionState!)),
           bluetoothIsOn
               ? bluetoothAdapterStateStreamProvider
                   .overrideWith((ref) => Stream.value(BluetoothAdapterState.on))
               : bluetoothAdapterStateStreamProvider
                   .overrideWith((ref) => Stream.value(BluetoothAdapterState.off))
         ],
-        child: const MaterialApp(
-          home: BluetoothConnectionScreen(),
+        child: MaterialApp(
+          navigatorObservers: observer,
+          home: const BluetoothConnectionScreen(),
         )));
 
-    await tester.pumpAndSettle();
+    if (pumpAndSettle) {
+      await tester.pumpAndSettle();
+    }
   }
 
   void expectFoundTextButton(bool found) {
@@ -84,5 +85,31 @@ class BluetoothRobot {
   void expectFindCircularProgressIndicator() {
     final finder = find.text('Searching IoT device...');
     expect(finder, findsOneWidget);
+  }
+
+  Future<void> pumpNoBluetoothWidget(MockBluetoothRepository repository) async {
+    await tester.pumpWidget(ProviderScope(
+      overrides: [
+        bluetoothRepositoryProvider.overrideWithValue(repository),
+      ],
+      child: const MaterialApp(
+        home: NoBluetoothWidget(),
+      ),
+    ));
+  }
+
+  void expectFindTurnOnBluetoothButton(Finder finder) {
+    expect(finder, findsOneWidget);
+  }
+
+  Future<void> tapTurnOnBluetoothButton(
+      Finder finder, MockBluetoothRepository repository) async {
+    when(() => repository.turnBluetoothOn()).thenAnswer((_) => Future.value());
+    await tester.tap(finder);
+    await tester.pumpAndSettle();
+  }
+
+  void expectCallingTurnOnBluetoothMethod(MockBluetoothRepository repository) {
+    verify(() => repository.turnBluetoothOn()).called(1);
   }
 }
