@@ -12,6 +12,7 @@ import 'package:new_gardenifi_app/src/features/bluetooth/presentation/wifi_conne
 import 'package:new_gardenifi_app/src/features/bluetooth/presentation/wifi_connection/widgets/connection_wifi_success_widget.dart';
 import 'package:new_gardenifi_app/src/features/bluetooth/presentation/wifi_connection/widgets/could_not_connect_to_internet_widget.dart';
 import 'package:new_gardenifi_app/src/features/mqtt/presentation/mqtt_controller.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../commons.dart';
 import '../../mocks.dart';
@@ -20,8 +21,6 @@ class WifiRobot {
   WifiRobot(this.tester);
   WidgetTester tester;
   final mockObserver = MockNavigatorObserver();
-
-  // final mockObserver = MockNavigatorObserver();
 
   Future<void> pumpWifiSetupScreen({
     required BluetoothDevice device,
@@ -215,10 +214,12 @@ class WifiRobot {
     final button = tester.widget<ElevatedButton>(finder);
     final offset = tester.getCenter(finder);
 
+    SharedPreferences.setMockInitialValues({'initialized': false});
+
     expect(finder, findsOneWidget);
     expect(button.onPressed, isNotNull);
     await tester.tapAt(offset);
-    await tester.pumpAndSettle();
+    await tester.pumpAndSettle(const Duration(milliseconds: 500));
   }
 
   void expectNavigateToProgramScreen() {
@@ -226,6 +227,10 @@ class WifiRobot {
           newRoute: any(named: 'newRoute'),
           oldRoute: any(named: 'oldRoute'),
         )).called(1);
+        // verify(() => mockObserver.didPush(
+        //   any(),
+        //  any(),
+        // )).called(1);
   }
 
 }

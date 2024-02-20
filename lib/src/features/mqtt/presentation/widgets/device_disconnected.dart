@@ -10,34 +10,37 @@ class DeviceDisconnectedWidget extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final loc = ref.read(appLocalizationsProvider);
     return Expanded(
-        child: Column(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: [
-        Flexible(
-          flex: 2,
+        child: Padding(
+          padding: const EdgeInsets.all(8.0),
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Text(
-                loc.deviceDisconnectedFromBrokerText,
-                style: TextStyles.mediumBold.copyWith(color: Colors.red[900]),
-                textAlign: TextAlign.center,
-              ),
-              Text(
-                loc.makeSureDeviceIsPoweredOnText,
-                style: TextStyles.smallNormal,
-              ),
-            ],
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+          Flexible(
+            flex: 2,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text(
+                  loc.deviceDisconnectedFromBrokerText,
+                  style: TextStyles.mediumBold.copyWith(color: Colors.red[900]),
+                  textAlign: TextAlign.center,
+                ),
+                Text(
+                  loc.makeSureDeviceIsPoweredOnText,
+                  style: TextStyles.smallNormal,
+                ),
+              ],
+            ),
           ),
-        ),
-        // A placeholder instead of button while device is not connected
-        Flexible(
-          flex: 1,
-          child: Container(
-            height: 100,
+          // A placeholder instead of button while device is not connected
+          Flexible(
+            flex: 1,
+            child: Container(
+              height: 100,
+            ),
           ),
-        ),
-      ],
-    ));
+                ],
+              ),
+        ));
   }
 }

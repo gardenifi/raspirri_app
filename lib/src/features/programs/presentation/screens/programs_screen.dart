@@ -55,7 +55,6 @@ class _ProgramsScreenState extends ConsumerState<ProgramsScreen>
         statusTopicMessage['err'] == 'LOST_CONNECTION');
     final bool canShowAllMenuOptions = (!hasConnectionError && !cantConnectToBroker);
 
-
     // When connection to broker is successful show snackbar
     ref.listen(connectedProvider, (previous, next) {
       if (next) {
@@ -103,11 +102,11 @@ class _ProgramsScreenState extends ConsumerState<ProgramsScreen>
                       ScreenUpperLandscape(
                           radius: screenHeight / 3,
                           showMenuButton: true,
-                        showAddRemoveMenu: canShowAllMenuOptions,
-                        showInitializeMenu: canShowAllMenuOptions,
-                        showRebootMenu: canShowAllMenuOptions,
-                        showUpdateMenu: canShowAllMenuOptions,
-                        showLogo: true),
+                          showAddRemoveMenu: canShowAllMenuOptions,
+                          showInitializeMenu: canShowAllMenuOptions,
+                          showRebootMenu: canShowAllMenuOptions,
+                          showUpdateMenu: canShowAllMenuOptions,
+                          showLogo: true),
                       gapW20,
                       Expanded(
                         child: Column(

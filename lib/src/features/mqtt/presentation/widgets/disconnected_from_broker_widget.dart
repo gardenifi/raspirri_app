@@ -46,8 +46,7 @@ class DisconnectedFromBrokerWidget extends ConsumerWidget {
           ), // A placeholder instead of button while device is not connected
           Flexible(
             flex: 1,
-            child: SizedBox(
-              height: 100,
+            child: SingleChildScrollView(
               child: Column(
                 children: [
                   Text(loc.ifProblemPersistOnDisconnectingFromBrokerText),
