@@ -1,10 +1,8 @@
-import 'dart:ffi';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
-import 'package:new_gardenifi_app/src/features/bluetooth/presentation/bluetooth_controller.dart';
 import 'package:new_gardenifi_app/src/features/mqtt/presentation/mqtt_controller.dart';
 import 'package:new_gardenifi_app/src/features/mqtt/presentation/widgets/can_not_connect_to_broker_widget.dart';
 import 'package:new_gardenifi_app/src/features/mqtt/presentation/widgets/device_disconnected.dart';

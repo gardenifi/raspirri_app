@@ -75,3 +75,8 @@ flutter:
     # Add assets from the images directory to the application.
     - assets/images/
     - assets/icons/
+     
+  fonts:
+    - family: Roboto
+      fonts:
+        - asset: assets/fonts/Roboto-Regular.ttf
