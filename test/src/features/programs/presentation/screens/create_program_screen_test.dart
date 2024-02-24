@@ -326,7 +326,11 @@ void main() {
       await r.confirmSelectTime();
       r.expectFindDurationPicker();
       await r.confirmDuration();
+      r.expectFindOneCycleWidget();
       r.expectCyclesProviderUpdated();
+      await r.tapSaveButton();
+      r.expectConfigTopicProviderUpdated();
+      r.expectSendSceduleToBrokerCalled();
     },
   );
 
@@ -356,5 +360,17 @@ void main() {
     },
   );
 
-  
+  testWidgets(
+    '''
+        delete program
+        ''',
+    (tester) async {
+      final r = CreateProgramRobot(tester);
+      setLandscapeScreen(tester);
+      await r.pumpCreateProgramScreen(config: [testProgram]);
+      r.expectFindDeleteProgramButton();
+      await r.tapDeleteProgramButton();
+      r.expectFindAlertDialog();
+    }
+  );
 }

@@ -30,8 +30,6 @@ class ProgramRobot {
     when(() => mockMqttController.setupAndConnectClient())
         .thenAnswer((_) => Future.value());
 
-    // when(() => mockMqttController.dispose()).thenReturn(null);
-
     await tester.pumpWidget(ProviderScope(
         overrides: [
           // wifiConnectionStatusProvider.overrideWith((ref) => '1'),

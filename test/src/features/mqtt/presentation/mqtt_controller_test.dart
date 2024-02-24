@@ -33,9 +33,11 @@ void main() {
     partialMock = container.read(partialMqttControllerProvider);
   });
 
-  test('Initialize Mqtt client with arguments stored by SharedPreferences', () async {
+  test('Initialize Mqtt client with arguments stored by SharedPreferences',
+      () async {
     // setup
-    registerFallbackValue(MqttServerClient.withPort('host', 'identifier', 8080));
+    registerFallbackValue(
+        MqttServerClient.withPort('host', 'identifier', 8080));
     SharedPreferences.setMockInitialValues({
       'mqtt_user': 'user',
       'mqtt_pass': '1234',
@@ -45,7 +47,8 @@ void main() {
 
     final client = MockMqttServerClient();
 
-    when(() => repository.initializeMqttClient(any(), any(), any())).thenReturn(client);
+    when(() => repository.initializeMqttClient(any(), any(), any()))
+        .thenReturn(client);
 
     when(() => repository.connectClient(any(), any(), any()))
         .thenAnswer((_) => Future.value());
@@ -58,10 +61,12 @@ void main() {
         .called(1);
   });
 
-  test('when connection to broker return SocketException, update state and provider',
+  test(
+      'when connection to broker return SocketException, update state and provider',
       () async {
     // setup
-    registerFallbackValue(MqttServerClient.withPort('host', 'identifier', 8080));
+    registerFallbackValue(
+        MqttServerClient.withPort('host', 'identifier', 8080));
     SharedPreferences.setMockInitialValues({
       'mqtt_user': 'user',
       'mqtt_pass': '1234',
@@ -72,9 +77,11 @@ void main() {
 
     final client = MockMqttServerClient();
 
-    when(() => repository.initializeMqttClient(any(), any(), any())).thenReturn(client);
+    when(() => repository.initializeMqttClient(any(), any(), any()))
+        .thenReturn(client);
 
-    when(() => repository.connectClient(any(), any(), any())).thenThrow(exception);
+    when(() => repository.connectClient(any(), any(), any()))
+        .thenThrow(exception);
 
     // run
     // Using mockMqttController class to avoid calling [subscribeToTopics] method
@@ -86,10 +93,12 @@ void main() {
     expect(partialMock.state, const AsyncData<void>(null));
   });
 
-  test('when connection to broker return NoConnectionException, update the provider',
+  test(
+      'when connection to broker return NoConnectionException, update the provider',
       () async {
     // setup
-    registerFallbackValue(MqttServerClient.withPort('host', 'identifier', 8080));
+    registerFallbackValue(
+        MqttServerClient.withPort('host', 'identifier', 8080));
     SharedPreferences.setMockInitialValues({
       'mqtt_user': 'user',
       'mqtt_pass': '1234',
@@ -101,9 +110,11 @@ void main() {
 
     final client = MockMqttServerClient();
 
-    when(() => repository.initializeMqttClient(any(), any(), any())).thenReturn(client);
+    when(() => repository.initializeMqttClient(any(), any(), any()))
+        .thenReturn(client);
 
-    when(() => repository.connectClient(any(), any(), any())).thenThrow(exception);
+    when(() => repository.connectClient(any(), any(), any()))
+        .thenThrow(exception);
 
     // run
     // the initial state is AsyncLoading
@@ -144,18 +155,19 @@ void main() {
 
     controller.hwId = '1324';
 
-    when(() => repository.publishMessage(any(), any(), any(), any())).thenReturn(null);
+    when(() => repository.publishMessage(any(), any(), any(), any()))
+        .thenReturn(null);
     // run
     controller.sendMessage(testTopic, testQos, testMessage, testRetain);
     // verify
-    verify(() =>
-            repository.publishMessage(expectedTopic, testQos, testMessage, testRetain))
-        .called(1);
+    verify(() => repository.publishMessage(
+        expectedTopic, testQos, testMessage, testRetain)).called(1);
   });
 
   test('disconnectFromBroker method calls repository [disconnect]', () {
     // setup
-    final client = controller.client = MockServerClient('server', 'clientIdentifier');
+    final client =
+        controller.client = MockServerClient('server', 'clientIdentifier');
     when(() => repository.disconnect(client)).thenReturn(null);
     // run
     controller.disconnectFromBroker();
@@ -171,15 +183,15 @@ void main() {
     String testMessage = '{"cmd":4}';
     bool testRetain = false;
 
-    when(() => repository.publishMessage(any(), any(), any(), any())).thenReturn(null);
+    when(() => repository.publishMessage(any(), any(), any(), any()))
+        .thenReturn(null);
 
     controller.hwId = '1234';
     // run
     controller.rebootDevice();
     // verify
-    verify(() =>
-            repository.publishMessage(expectedTopic, testQos, testMessage, testRetain))
-        .called(1);
+    verify(() => repository.publishMessage(
+        expectedTopic, testQos, testMessage, testRetain)).called(1);
   });
 
   test('updateSever method sends the appropriate message', () {
@@ -190,15 +202,15 @@ void main() {
     String testMessage = '{"cmd":6}';
     bool testRetain = false;
 
-    when(() => repository.publishMessage(any(), any(), any(), any())).thenReturn(null);
+    when(() => repository.publishMessage(any(), any(), any(), any()))
+        .thenReturn(null);
 
     controller.hwId = '1234';
     // run
-    controller.updateSever();
+    controller.updateServer();
     // verify
-    verify(() =>
-            repository.publishMessage(expectedTopic, testQos, testMessage, testRetain))
-        .called(1);
+    verify(() => repository.publishMessage(
+        expectedTopic, testQos, testMessage, testRetain)).called(1);
   });
 
   group('Subscribe to topics, listen to the stream and update providers', () {
@@ -308,7 +320,8 @@ void main() {
 
         when(() => mockServerClient.updates).thenAnswer((_) => testStream);
 
-        final subscription = container.listen(metadataTopicProvider, (_, __) {});
+        final subscription =
+            container.listen(metadataTopicProvider, (_, __) {});
 
         // run
         controller.subscribeToTopics();

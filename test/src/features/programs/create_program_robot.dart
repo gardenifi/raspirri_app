@@ -2,19 +2,27 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:mocktail/mocktail.dart';
+import 'package:mqtt_client/mqtt_client.dart';
 import 'package:new_gardenifi_app/src/features/mqtt/presentation/mqtt_controller.dart';
 import 'package:new_gardenifi_app/src/features/programs/domain/cycle.dart';
 import 'package:new_gardenifi_app/src/features/programs/domain/program.dart';
+import 'package:new_gardenifi_app/src/features/programs/presentation/program_controller.dart';
 import 'package:new_gardenifi_app/src/features/programs/presentation/screens/create_program_screen.dart';
+import 'package:new_gardenifi_app/src/features/programs/presentation/screens/programs_screen.dart';
 import 'package:new_gardenifi_app/src/features/programs/presentation/widgets/button_add_cycle.dart';
 import 'package:new_gardenifi_app/src/features/programs/presentation/widgets/button_delete_program.dart';
 import 'package:new_gardenifi_app/src/features/programs/presentation/widgets/button_save_program.dart';
 import 'package:new_gardenifi_app/src/features/programs/presentation/widgets/day_button.dart';
 import 'package:new_gardenifi_app/src/features/programs/presentation/widgets/days_of_week_widget.dart';
 
+import '../../mocks.dart';
+import '../../provider_container.dart';
+
 class CreateProgramRobot {
   CreateProgramRobot(this.tester);
   final WidgetTester tester;
+  late ProviderContainer container;
 
   Future<void> pumpCreateProgramScreen({
     List<Program> config = const [],
@@ -41,6 +49,9 @@ class CreateProgramRobot {
           theme: ThemeData(fontFamily: 'Roboto'),
           home: CreateProgramScreen(valve: 1, name: 'valve1'),
         )));
+
+    final context = tester.element(find.byType(CreateProgramScreen));
+    container = ProviderScope.containerOf(context);
 
     if (pumpAndSettle) {
       await tester.pumpAndSettle();
@@ -113,6 +124,31 @@ class CreateProgramRobot {
     await tester.pumpAndSettle();
   }
 
+  Future<void> tapSaveButton() async {
+    expectFindSaveProgramButton();
+    await tester.tap(find.byType(SaveProgramButton));
+    await tester.pumpAndSettle();
+  }
+
+  Future<void> tapDeleteProgramButton() async {
+    await tester.tap(find.widgetWithText(TextButton, 'Delete program'));
+    await tester.pumpAndSettle();
+  }
+
+  void expectConfigTopicProviderUpdated() {
+    final config = container.read(configTopicProvider);
+    expect(config.length, 1);
+  }
+
+  void expectSendSceduleToBrokerCalled() {
+    final schedule = container.read(configTopicProvider);
+    expect(container.read(programProvider).sendSchedule(schedule), -1);
+  }
+
+  void expectFindProgramScreen() {
+    expect(find.byType(ProgramsScreen), findsOneWidget);
+  }
+
   void expectFindCreateProgramScreen() {
     expect(find.byType(CreateProgramScreen), findsOneWidget);
   }
@@ -154,10 +190,7 @@ class CreateProgramRobot {
   }
 
   void expectHasProgramChangedProviderUpdated() {
-    final context = tester.element(find.byType(CreateProgramScreen));
-    final container = ProviderScope.containerOf(context);
     expect(container.read(hasProgramChangedProvider), true);
-    container.dispose();
   }
 
   void expectFindSevenDayButtons() {
@@ -173,11 +206,7 @@ class CreateProgramRobot {
   }
 
   void expectDaysOfProgramProviderUpdated(List<DaysOfWeek> value) {
-    final context = tester.element(find.byType(CreateProgramScreen));
-    final container = ProviderScope.containerOf(context);
     expect(container.read(daysOfProgramProvider), value);
-    container.dispose();
-
   }
 
   void expectFindAddCycleButton() {
@@ -189,14 +218,10 @@ class CreateProgramRobot {
   }
 
   void expectCyclesProviderUpdated() {
-    final context = tester.element(find.byType(CreateProgramScreen));
-    final container = ProviderScope.containerOf(context);
     final cycles = container.read(cyclesOfProgramProvider.notifier).state;
     expect(cycles.length, 1);
     expect(cycles[0].start, isNotEmpty);
     expect(cycles[0].min, '1');
-    container.dispose();
-
   }
 
   void expectFindDurationPicker() {
@@ -216,19 +241,13 @@ class CreateProgramRobot {
   }
 
   void expectCyclesProviderHasOneCycle() {
-    final context = tester.element(find.byType(CreateProgramScreen));
-    final container = ProviderScope.containerOf(context);
     final cycles = container.read(cyclesOfProgramProvider.notifier).state;
     expect(cycles.length, 1);
-    
-
   }
 
   void expectCyclesProviderBeEmpty() {
-    final context = tester.element(find.byType(CreateProgramScreen));
-    final container = ProviderScope.containerOf(context);
     final cycles = container.read(cyclesOfProgramProvider.notifier).state;
     expect(cycles, []);
-    container.dispose();
   }
+
 }

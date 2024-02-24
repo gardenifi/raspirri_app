@@ -8,6 +8,7 @@ import 'package:new_gardenifi_app/src/features/bluetooth/data/bluetooth_reposito
 import 'package:new_gardenifi_app/src/features/bluetooth/presentation/bluetooth_controller.dart';
 import 'package:new_gardenifi_app/src/features/mqtt/data/mqtt_repository.dart';
 import 'package:new_gardenifi_app/src/features/mqtt/presentation/mqtt_controller.dart';
+import 'package:new_gardenifi_app/src/features/programs/presentation/program_controller.dart';
 
 class MockMqttRepository extends Mock implements MqttRepository {}
 
@@ -31,6 +32,8 @@ class MockBluetoothController extends StateNotifier<AsyncValue<BluetoothDevice?>
 class MockNavigatorObserver extends Mock implements NavigatorObserver {}
 
 class FakeRoute extends Fake implements Route {}
+
+class MockProgramController extends Mock implements ProgramController {}
 
 class Listener<T> extends Mock {
   void call(T? previous, T next);
