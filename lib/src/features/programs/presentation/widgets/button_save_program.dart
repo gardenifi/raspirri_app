@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:new_gardenifi_app/src/constants/text_styles.dart';
@@ -16,6 +15,7 @@ class SaveProgramButton extends StatelessWidget {
     Key? key,
     required this.widget,
     required this.ref,
+    required this.name,
     required this.daysSelected,
     required this.cyclesOfCurrentProgram,
     required this.currentSchedule,
@@ -24,6 +24,7 @@ class SaveProgramButton extends StatelessWidget {
 
   final CreateProgramScreen widget;
   final WidgetRef ref;
+  final String name;
   final List<DaysOfWeek> daysSelected;
   final List<Cycle> cyclesOfCurrentProgram;
   final List<Program> currentSchedule;
@@ -38,7 +39,7 @@ class SaveProgramButton extends StatelessWidget {
         var listOfDays = convertListDaysOfWeekToListString(daysSelected).join(',');
         var program = Program(
           out: widget.valve,
-          name: widget.name,
+          name: name.isEmpty ? widget.name : name,
           days: listOfDays,
           cycles: cyclesOfCurrentProgram,
           tz_offset: tzOffset,
