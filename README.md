@@ -2,6 +2,7 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](./LICENSE.md)
 [![PRs welcome!](https://img.shields.io/badge/contributions-welcome-green.svg?style=flat)](https://github.com/gardenifi/raspirri_server/issues)
 ![example workflow](https://github.com/gardenifi/raspirri_app/actions/workflows/tests.yaml/badge.svg)
+[![codecov](https://codecov.io/gh/gardenifi/raspirri_app/graph/badge.svg?token=22D00TSRNJ)](https://codecov.io/gh/gardenifi/raspirri_app)
 
   
 # RaspirryV1 Control Android app
