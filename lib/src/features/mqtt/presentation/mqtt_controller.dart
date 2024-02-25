@@ -2,6 +2,7 @@ import 'dart:async';
 import 'dart:convert';
 import 'dart:io';
 
+import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:mqtt_client/mqtt_client.dart';
 import 'package:mqtt_client/mqtt_server_client.dart';
@@ -72,11 +73,12 @@ class MqttController extends StateNotifier<AsyncValue<void>> {
       // Stop loading state
       state = const AsyncData(null);
       // Get the message from the broker (from any topic)
-      final MqttPublishMessage receivedMessage = event[0].payload as MqttPublishMessage;
+      final MqttPublishMessage receivedMessage =
+          event[0].payload as MqttPublishMessage;
       final topic = event[0].topic;
 
-      final String tempMessage =
-          MqttPublishPayload.bytesToStringAsString(receivedMessage.payload.message);
+      final String tempMessage = MqttPublishPayload.bytesToStringAsString(
+          receivedMessage.payload.message);
 
       final message = const Utf8Decoder().convert(tempMessage.codeUnits);
 
@@ -85,6 +87,7 @@ class MqttController extends StateNotifier<AsyncValue<void>> {
 
         List<String> listOfValvesFromBroker =
             (jsonDecode(correctedMessage) as List<dynamic>).cast<String>();
+
         ref.read(valvesTopicProvider.notifier).state = listOfValvesFromBroker;
       }
 
@@ -92,6 +95,7 @@ class MqttController extends StateNotifier<AsyncValue<void>> {
         final String replacedString = message.replaceAll('\'', '"');
 
         final Map<String, dynamic> mes = jsonDecode(replacedString);
+
         ref.read(statusTopicProvider.notifier).state = mes;
       }
 
@@ -104,7 +108,8 @@ class MqttController extends StateNotifier<AsyncValue<void>> {
 
       if (topic == config) {
         // Convert received message to List<Program>
-        List<Program> scheduleUtcFromBroker = (json.decode(message) as List).map((e) {
+        List<Program> scheduleUtcFromBroker =
+            (json.decode(message) as List).map((e) {
           Program program = Program.fromJson(e);
           return program;
         }).toList();
@@ -126,22 +131,22 @@ class MqttController extends StateNotifier<AsyncValue<void>> {
   }
 
   void rebootDevice() {
-    ref
-        .read(mqttControllerProvider.notifier)
-        .sendMessage(commandTopic, MqttQos.atLeastOnce, jsonEncode(rebootCmd), false);
+    debugPrint('******* reboot called'); //! for testing
+    sendMessage(
+        commandTopic, MqttQos.atLeastOnce, jsonEncode(rebootCmd), false);
   }
 
-  void updateSever() {
-    ref
-        .read(mqttControllerProvider.notifier)
-        .sendMessage(commandTopic, MqttQos.atLeastOnce, jsonEncode(updateCmd), false);
+  void updateServer() {
+    sendMessage(
+        commandTopic, MqttQos.atLeastOnce, jsonEncode(updateCmd), false);
   }
 }
 
 // ------------> Providers <--------------
 
 final mqttControllerProvider =
-    StateNotifierProvider<MqttController, AsyncValue>((ref) => MqttController(ref));
+    StateNotifierProvider<MqttController, AsyncValue>(
+        (ref) => MqttController(ref));
 
 final valvesTopicProvider = StateProvider<List<String>>((ref) => []);
 

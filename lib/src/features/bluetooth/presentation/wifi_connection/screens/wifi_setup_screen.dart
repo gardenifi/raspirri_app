@@ -14,6 +14,9 @@ import 'package:new_gardenifi_app/src/features/bluetooth/presentation/wifi_conne
 import 'package:new_gardenifi_app/src/features/bluetooth/presentation/wifi_connection/screens/wifi_connection_screen.dart';
 import 'package:new_gardenifi_app/src/localization/app_localizations_provider.dart';
 
+// For testing only
+const kInkWellKey = Key('inkWell-Key');
+
 class WiFiSetupScreen extends ConsumerStatefulWidget {
   const WiFiSetupScreen(this.device, {super.key});
 
@@ -25,15 +28,10 @@ class WiFiSetupScreen extends ConsumerStatefulWidget {
 
 class _WiFiSetupScreenState extends ConsumerState<WiFiSetupScreen> {
   String ssid = '';
-
   bool passwordSelected = false;
-
   bool networkSelected = false;
-
   bool passwordVisibility = false;
-
   String password = '';
-
   TextEditingController controller = TextEditingController();
 
   late final focusNode = FocusNode();
@@ -88,7 +86,7 @@ class _WiFiSetupScreenState extends ConsumerState<WiFiSetupScreen> {
                 ScreenUpperPortrait(
                     radius: radius, showMenuButton: false, showLogo: true),
                 !isBluetoothOn
-                    ? Expanded(child: NoBluetoothWidget(ref: ref))
+                    ? const Expanded(child: NoBluetoothWidget())
                     : !isConnected
                         ? ConnectionLostWidget(widget.device)
                         : nets.when(
@@ -108,8 +106,7 @@ class _WiFiSetupScreenState extends ConsumerState<WiFiSetupScreen> {
                                               children: [
                                                 Padding(
                                                   padding: const EdgeInsets.all(12.0),
-                                                  child: Text(
-                                                      loc.selectNetworkLabel),
+                                                  child: Text(loc.selectNetworkLabel),
                                                 ),
                                                 SizedBox(
                                                   width: 300,
@@ -155,25 +152,24 @@ class _WiFiSetupScreenState extends ConsumerState<WiFiSetupScreen> {
                                                       border: OutlineInputBorder(
                                                           borderRadius:
                                                               BorderRadius.circular(15)),
-                                                      labelText:
-                                                          loc.enterPasswordLabel,
-                                                      suffixIcon: InkWell(
-                                                        onTap: () => setState(() {
-                                                          passwordVisibility =
-                                                              !passwordVisibility;
-                                                          password = controller.text;
-                                                          controller.selection =
-                                                              TextSelection.fromPosition(
-                                                                  TextPosition(
-                                                                      offset: password
-                                                                          .length));
-                                                        }),
-                                                        child: passwordVisibility
-                                                            ? const Icon(
-                                                                Icons.visibility_off)
-                                                            : const Icon(
-                                                                Icons.visibility),
-                                                      ),
+                                                      labelText: loc.enterPasswordLabel,
+                                                      suffixIcon: IconButton(
+                                                          onPressed: () => setState(() {
+                                                                passwordVisibility =
+                                                                    !passwordVisibility;
+                                                                password =
+                                                                    controller.text;
+                                                                controller.selection =
+                                                                    TextSelection.fromPosition(
+                                                                        TextPosition(
+                                                                            offset: password
+                                                                                .length));
+                                                              }),
+                                                          icon: passwordVisibility
+                                                              ? const Icon(
+                                                                  Icons.visibility_off)
+                                                              : const Icon(
+                                                                  Icons.visibility)),
                                                     ),
                                                     onSubmitted: (givenText) {
                                                       setState(() {
@@ -196,9 +192,9 @@ class _WiFiSetupScreenState extends ConsumerState<WiFiSetupScreen> {
                                                   screenWidth: screenWidth,
                                                   screenHeight: screenHeight,
                                                   isBluetoothOn: isBluetoothOn,
-                                                  text:
-                                                      loc.connectToNetworkText,
-                                                  buttonText: loc.connectToNetworkButtonLabel,
+                                                  text: loc.connectToNetworkText,
+                                                  buttonText:
+                                                      loc.connectToNetworkButtonLabel,
                                                   ref: ref,
                                                   callback: () async {
                                                     ref.invalidate(

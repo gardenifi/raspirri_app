@@ -55,14 +55,6 @@ class __CreateProgramScreenStateState extends ConsumerState<CreateProgramScreen>
     }
   }
 
-  String getName(List<Program> schedule) {
-    try {
-      return schedule.firstWhere((program) => program.out == widget.valve).name;
-    } catch (e) {
-      return '';
-    }
-  }
-
   bool hasProgram() {
     var index = ref
         .read(configTopicProvider)

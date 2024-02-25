@@ -21,7 +21,7 @@ Future<bool?> checkInitializationStatus() async {
   return false;
 }
 
-TimeOfDay convertStringToTimeOfDay(BuildContext context, String startTime) {
+TimeOfDay convertStringToTimeOfDay(String startTime) {
   DateTime dateTime = DateFormat.Hm().parse(startTime);
   TimeOfDay timeOfDay = TimeOfDay.fromDateTime(dateTime);
   return timeOfDay;

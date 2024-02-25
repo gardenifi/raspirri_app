@@ -30,8 +30,9 @@ class AddRemoveValveWidget extends ConsumerWidget {
     var enabledValves = ref.watch(valvesTopicProvider);
 
     return FloatingActionButton(
-      backgroundColor:
-          enabledValves.contains(port) ? Colors.grey : Colors.green.withOpacity(0.5),
+      backgroundColor: enabledValves.contains(port)
+          ? Colors.grey
+          : Colors.green.withOpacity(0.5),
       onPressed: () async {
         // if the port is not registered, add it and send message to broker with new list to [valves] topic
         if (!enabledValves.contains(port)) {
@@ -58,8 +59,11 @@ class AddRemoveValveWidget extends ConsumerWidget {
             if (res == true) {
               enabledValves.remove(port);
               ref.read(programProvider).deleteProgram(int.parse(port));
-              ref.read(mqttControllerProvider.notifier).sendMessage(valvesTopic,
-                  MqttQos.atLeastOnce, jsonEncode(sortList(enabledValves)), true);
+              ref.read(mqttControllerProvider.notifier).sendMessage(
+                  valvesTopic,
+                  MqttQos.atLeastOnce,
+                  jsonEncode(sortList(enabledValves)),
+                  true);
             } else {}
           }
         }
@@ -72,7 +76,9 @@ class AddRemoveValveWidget extends ConsumerWidget {
             style: const TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
           ),
           Text(
-            !enabledValves.contains(port) ? loc.addValveLabel : loc.removeValveLabel,
+            !enabledValves.contains(port)
+                ? loc.addValveLabel
+                : loc.removeValveLabel,
             style: const TextStyle(color: Colors.black45, fontSize: 12),
           )
         ],

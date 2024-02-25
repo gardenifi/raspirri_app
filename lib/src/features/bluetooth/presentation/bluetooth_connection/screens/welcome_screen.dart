@@ -52,7 +52,7 @@ class WelcomeScreen extends ConsumerWidget {
                     showLogo: false,
                     messageWidget: buildWelcomeText(radius, loc)),
                 GardenifiLogo(height: screenHeight, divider: 8),
-                if (!isBluetoothOn) Expanded(child: NoBluetoothWidget(ref: ref)),
+                if (!isBluetoothOn) const Expanded(child: NoBluetoothWidget()),
                 BottomWidget(
                     context: context,
                     screenWidth: screenWidth,

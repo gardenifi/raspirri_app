@@ -96,7 +96,7 @@ class MoreMenuButton extends ConsumerWidget {
                     cancelActionText: loc.cancelLabel);
                 if (res == true) {
                   showSnackbar(context, loc.updateSnackbarContent);
-                  ref.read(mqttControllerProvider.notifier).updateSever();
+                  ref.read(mqttControllerProvider.notifier).updateServer();
                 }
               },
               child: Text(loc.updateTitle),

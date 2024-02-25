@@ -125,6 +125,7 @@ class BluetoothController extends StateNotifier<AsyncValue<BluetoothDevice?>> {
     // read the response from device
     page1response = await readFromDevice(mainCharacteristic!);
     String stringOfWifis = String.fromCharCodes(page1response);
+    log(stringOfWifis);
     var networksFromJson = WifiNetworks.fromJson(stringOfWifis);
     listOfWifiNetwork += networksFromJson.nets;
 
@@ -186,7 +187,7 @@ final wifiNetworksFutureProvider =
   return ref.watch(bluetoothControllerProvider.notifier).fetchNetworks(char!);
 });
 
-// The provider that watch if device connected to internet or not. If connected it return "1" else returns "0"
+// The provider that watch if device connected to internet or not. If connected it returns "1" else returns "0"
 final wifiConnectionStatusProvider = FutureProvider<String>((ref) async {
   final ssid = ref.watch(ssidProvider);
   final password = ref.watch(passwordProvider);
@@ -204,4 +205,3 @@ final ssidProvider = StateProvider<String>((ref) {
 final passwordProvider = StateProvider<String>((ref) {
   return '';
 });
-
