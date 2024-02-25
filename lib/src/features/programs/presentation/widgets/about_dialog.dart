@@ -29,7 +29,8 @@ Future<bool?> aboutDialog({
         children: [
           Text('Hardware Id: $hwId\n', style: textStyle),
           Text('Uptime: ${metadata['uptime']}\n', style: textStyle),
-          Text('Server version: ${metadata['git_commit']}', style: textStyle),
+          Text('Server current version: ${metadata['version']}', style: textStyle),
+          Text('Server latest version: ${metadata['latest_version']}', style: textStyle),
           gapH12,
           InkWell(
             child: Text(
