@@ -42,8 +42,8 @@ class Cycle {
   @override
   bool operator ==(covariant Cycle other) {
     if (identical(this, other)) return true;
-  
-    return 
+
+    return
       other.start == start &&
       other.min == min;
   }

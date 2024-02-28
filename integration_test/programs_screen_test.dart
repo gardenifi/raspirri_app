@@ -9,7 +9,7 @@ void main() {
    IntegrationTestWidgetsFlutterBinding.ensureInitialized();
   group('Portait', () {
     testWidgets(
-      '''When while fatching data from broker 
+      '''When while fatching data from broker
        Then show CircularProgressIndicator''',
       (tester) async {
         final r = ProgramRobot(tester);
@@ -83,7 +83,7 @@ void main() {
 
   group('Landscape', () {
     testWidgets(
-      '''When while fatching data from broker 
+      '''When while fatching data from broker
        Then show CircularProgressIndicator''',
       (tester) async {
         final dpi = tester.view.devicePixelRatio;

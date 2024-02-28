@@ -37,7 +37,7 @@ void main() {
 
       testWidgets(
         '''
-        When no changes made 
+        When no changes made
         Then the SaveButton should NOT appear
         ''',
         (tester) async {
@@ -51,7 +51,7 @@ void main() {
 
       testWidgets(
         '''
-        When changes made 
+        When changes made
         Then the SaveButton should appear
         ''',
         (tester) async {
@@ -65,7 +65,7 @@ void main() {
 
       testWidgets(
         '''
-        When exists program 
+        When exists program
         Then DeleteProgramButton should appear
         ''',
         (tester) async {
@@ -79,7 +79,7 @@ void main() {
 
       testWidgets(
         '''
-        When NOT exists a program 
+        When NOT exists a program
         Then DeleteProgramButton should NOT appear
         ''',
         (tester) async {
@@ -139,7 +139,7 @@ void main() {
       testWidgets(
         '''
         Given a DayButton (Mon) is selected
-        When tap on tha DayButton again 
+        When tap on tha DayButton again
         Then the color of day button should be null
         And daysOfProgramProvider should update
         ''',
@@ -172,7 +172,7 @@ void main() {
 
       testWidgets(
         '''
-        When no changes made 
+        When no changes made
         Then the SaveButton should NOT appear
         ''',
         (tester) async {
@@ -186,7 +186,7 @@ void main() {
 
       testWidgets(
         '''
-        When changes made 
+        When changes made
         Then the SaveButton should appear
         ''',
         (tester) async {
@@ -200,7 +200,7 @@ void main() {
 
       testWidgets(
         '''
-        When exists program 
+        When exists program
         Then DeleteProgramButton should appear
         ''',
         (tester) async {
@@ -214,7 +214,7 @@ void main() {
 
       testWidgets(
         '''
-        When NOT exists a program 
+        When NOT exists a program
         Then DeleteProgramButton should NOT appear
         ''',
         (tester) async {
@@ -274,7 +274,7 @@ void main() {
       testWidgets(
         '''
         Given a DayButton (Mon) is selected
-        When tap on tha DayButton again 
+        When tap on tha DayButton again
         Then the color of day button should be null
         And daysOfProgramProvider should update
         ''',

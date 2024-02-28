@@ -7,7 +7,7 @@ void main() {
   group('wifi_connection_screen', () {
     testWidgets('connection success ', (tester) async {
       final r = WifiRobot(tester);
-      
+
       await r.pumpWifiConnectionScreenWithSuccess('1');
       r.expectConnectionWifiSuccessWidget();
       r.expectFindContinueButton();
@@ -31,6 +31,6 @@ void main() {
     });
   });
 }
-// 
- 
+//
+
 //

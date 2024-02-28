@@ -139,7 +139,7 @@ void main() {
 
   test('readFromDevice method if mainCharacteristic is null return []', () async {
     // setup
-   
+
     final char = fakeBluetoothCharacteristic;
 
     var container = ProviderContainer(

@@ -19,7 +19,7 @@ void main() {
     testWidgets(
     '''Given bluetooth is On
        When BluetoothConnectionScreen opens
-       And device NOT found 
+       And device NOT found
        Then show appropriate widget
     ''',
     (tester) async {
@@ -47,7 +47,7 @@ void main() {
   testWidgets(
     '''Given bluetooth is Off
        When BluetoothConnectionScreen opens
-       And device NOT found 
+       And device NOT found
        Then show appropriate widget
     ''',
     (tester) async {
@@ -205,7 +205,7 @@ void main() {
     '''Given bluetooth is On
        When BluetoothConnectionScreen opens
        And device HAS found
-       And device connected 
+       And device connected
        Then show appropriate widgets
     ''',
     (tester) async {

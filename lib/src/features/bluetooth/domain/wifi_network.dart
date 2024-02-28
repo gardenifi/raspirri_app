@@ -27,7 +27,7 @@ class WifiNetwork {
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) return true;
-  
+
     return other is WifiNetwork &&
       other.id == id &&
       other.ssid == ssid &&

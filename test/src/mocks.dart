@@ -42,7 +42,6 @@ class Listener<T> extends Mock {
 class MockMqttController extends StateNotifier<AsyncValue<void>>
     with Mock
     implements MqttController {
-  
+
   MockMqttController(AsyncValue<void> initialValue) : super(initialValue);
 }
-

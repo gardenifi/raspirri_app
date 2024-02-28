@@ -88,7 +88,7 @@
           "type": "int"
         }
       }
-    }, 
+    },
     "startLabel": "Έναρξη: ",
     "durationLabel": "Διάρκεια: ",
     "noValveText": "Δεν έχει προστεθεί βάνα.\n",
@@ -110,7 +110,7 @@
       "placeholders": {
         "endTime":{
           "type": "String"
-        }      
+        }
       }
     },
     "nextRunText": "Επόμενο άνοιγμα: ",
@@ -149,16 +149,15 @@
         }
       }
     }
-  
-      
-
-  
-    
-  
 
 
 
-  
+
+
+
+
+
+
+
 
     }
-  
