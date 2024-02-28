@@ -1,17 +1,22 @@
-name: Run Tests
+name: Unit Tests
 on: [push, workflow_dispatch]
 jobs:
   drive:
     runs-on: ubuntu-latest
     steps:
-     - uses: actions/checkout@v4
-     - uses: subosito/flutter-action@v2
-       with:
-        channel: 'stable'
-     - run: flutter test
+      - name: Checkout code
+        uses: actions/checkout@v4
 
-     - name: Upload coverage reports to Codecov
-       uses: codecov/codecov-action@v4.0.1
-       with:
-        token: ${{ secrets.CODECOV_TOKEN }}
-        slug: gardenifi/raspirri_app
+      - name: Install flutter
+        uses: subosito/flutter-action@v2
+        with:
+          channel: 'stable'
+      
+      - name: Run Unit Tests
+        run: flutter test
+
+      - name: Upload coverage reports to Codecov
+        uses: codecov/codecov-action@v4.0.1
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
+          slug: gardenifi/raspirri_app
