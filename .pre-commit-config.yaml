@@ -11,3 +11,12 @@ repos:
     hooks:
     -   id: black
 
+-   repo: https://github.com/dluksza/flutter-analyze-pre-commit
+    rev: "4afcaa82fc368d40d486256bf4edba329bf667bb"
+    hooks:
+    -   id: flutter-analyze
+
+-   repo: https://github.com/Virtomize/flutter-test-pre-commit
+    rev: "036a12b8dc14bd40fb59c186b5451b4537cc2d53"
+    hooks:
+    -   id: flutter-test

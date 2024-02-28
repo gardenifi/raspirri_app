@@ -52,9 +52,23 @@ cd raspirri_app
 3. Install dependencies
 ```
 flutter pub get
-flutter pub add --dev husky
 ```
+4. Make sure flutter analyze reports no errors:
+```
+$ flutter analyze --suggestions
 
+┌───────────────────────────────────────────────────────────┐
+│ General Info                                              │
+│ [✓] App Name: new_gardenifi_app                           │
+│ [✓] Supported Platforms: android, ios, web, macos, linux, │
+│ windows                                                   │
+│ [✓] Is Flutter Package: yes                               │
+│ [✓] Uses Material Design: yes                             │
+│ [✓] Is Plugin: no                                         │
+│ [✓] Java/Gradle/Android Gradle Plugin: compatible         │
+│ java/gradle/agp                                           │
+└───────────────────────────────────────────────────────────┘
+```
 
 5. Connect your Android device to the computer and ensure it is recognized by Flutter:
 ```

@@ -15,10 +15,10 @@ dependencies:
   flutter:
     sdk: flutter
   flutter_blue_plus: ^1.28.10
-  
+
   flutter_localizations:
     sdk: flutter
-  
+
   flutter_riverpod: ^2.4.5
   google_fonts: ^6.1.0
   http: ^1.1.2
@@ -38,9 +38,10 @@ dev_dependencies:
   integration_test:
     sdk: flutter
 
-  flutter_lints: ^2.0.0
+  flutter_lints: ^3.0.1
   flutter_native_splash: ^2.3.9
   flutter_launcher_icons: ^0.13.1
+  format: ^1.4.0
 
 # TODO: delete it
 flutter_launcher_icons:
@@ -62,7 +63,7 @@ flutter_native_splash:
     image_dark: assets/images/splash_dark.png
 
   web: false
-  
+
 
 
 flutter:
@@ -75,7 +76,7 @@ flutter:
     # Add assets from the images directory to the application.
     - assets/images/
     - assets/icons/
-     
+
   fonts:
     - family: Roboto
       fonts:

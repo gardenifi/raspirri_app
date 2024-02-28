@@ -14,8 +14,6 @@ import '../../../../../mocks.dart';
 import '../../../bluetooth_robot.dart';
 
 void main() {
-  late BluetoothDevice device;
-
     testWidgets(
     '''Given bluetooth is On
        When BluetoothConnectionScreen opens
