@@ -1,5 +1,13 @@
 name: Precommit
-on: [push, workflow_dispatch, workflow_call]
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - '!bumpversion.cfg'  # Exclude bumpversion.cfg
+  workflow_dispatch:
+  workflow_call:
+
 jobs:
   common-job:
     runs-on: ubuntu-latest
@@ -29,6 +37,7 @@ jobs:
 
       - name: Run pre-commit and flutter tests
         run: |
+          flutter pub get
           pre-commit run --all-files
 
       - name: Upload coverage reports to Codecov
