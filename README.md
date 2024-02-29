@@ -156,7 +156,7 @@ Every time you need to create a new release, you should execute the following co
 Example:
 ```
 pip install bump2version
-export NEW_VERSION=2.0.1
+export NEW_VERSION=2.0.2
 export PART=patch
 bump2version --new-version ${NEW_VERSION} ${PART} --config-file bumpversion.cfg
 git add bumpversion.cfg && git commit -m "Bumping version to v${NEW_VERSION}" && git push
