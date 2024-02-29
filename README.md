@@ -155,12 +155,7 @@ Every time you need to create a new release, you should execute the following co
 
 Example:
 ```
-pip install bump2version
-export NEW_VERSION=2.0.2
-export PART=patch
-bump2version --new-version ${NEW_VERSION} ${PART} --config-file bumpversion.cfg
-git add bumpversion.cfg && git commit -m "Bumping version to v${NEW_VERSION}" && git push
-git tag "v${NEW_VERSION}" && git push origin "v${NEW_VERSION}"
+NEW_VERSION=2.0.5 ./new_release.sh
 ```
 
 then a new release will be created (from Github actions) in the releases section [assets](https://github.com/gardenifi/raspirri_app/releases) with the same version number.
