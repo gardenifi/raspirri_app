@@ -30,6 +30,11 @@ jobs:
           pip install wheel==0.42.0
           pip install invoke==2.2.0
 
+      - name: Install flutter
+        uses: subosito/flutter-action@v2
+        with:
+          channel: 'stable'
+
       - name: Set up JDK 17
         uses: actions/setup-java@v3
         with:
