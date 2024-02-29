@@ -55,7 +55,8 @@ jobs:
           # Add, commit, and push the changes
           git add CHANGELOG.md
           git commit -m "Auto-generated changelog"
-          git push
+          git merge HEAD@{1}  # Merge changes from the previous commit
+          git push origin main
 
       - name: Upload new release to assets
         run: |
