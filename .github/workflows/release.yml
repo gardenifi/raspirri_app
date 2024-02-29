@@ -31,6 +31,15 @@ jobs:
           pip install wheel==0.42.0
           pip install invoke==2.2.0
 
+      - name: Set up JDK 17
+        uses: actions/setup-java@v3
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+
+      - name: Setup Android SDK
+        uses: android-actions/setup-android@v3
+
       - name: Generate Changelog
         run: |
           auto-changelog --template keepachangelog
@@ -44,6 +53,6 @@ jobs:
           git commit -m "Auto-generated changelog"
           git push
 
-      # - name: Upload new release to assets
-      #   run: |
-      #     NEW_VERSION=$(git describe --abbrev=0 --tags | cut -d'v' -f2) INSTALLATION_PATH=./tmp invoke upload-to-github
+      - name: Upload new release to assets
+        run: |
+          NEW_VERSION=$(git describe --abbrev=0 --tags | cut -d'v' -f2) INSTALLATION_PATH=./tmp invoke upload-to-github

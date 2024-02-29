@@ -27,7 +27,7 @@ jobs:
           pip install pre-commit
           pre-commit install
 
-      - name: Run pre-commit
+      - name: Run pre-commit and flutter tests
         run: |
           pre-commit run --all-files
 
