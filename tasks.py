@@ -15,9 +15,9 @@ def build(ctx):
     ctx.run("flutter pub get")
     ctx.run("flutter build apk --split-per-abi")
     # This command results in three APK files:
-    # raspirri_app/build/app/outputs/apk/release/app-armeabi-v7a-release.apk
-    # raspirri_app/build/app/outputs/apk/release/app-arm64-v8a-release.apk
-    # raspirri_app/build/app/outputs/apk/release/app-x86_64-release.apk
+    # build/app/outputs/apk/release/app-armeabi-v7a-release.apk
+    # build/app/outputs/apk/release/app-arm64-v8a-release.apk
+    # build/app/outputs/apk/release/app-x86_64-release.apk
 
 
 @task
@@ -100,11 +100,11 @@ def upload_to_github(ctx):
     if response.status_code == 201:
 
         # Path to the generated installer files
-        installer_file_1 = f"build/app/outputs/apk/release/app-armeabi-v7a-release.apk"
+        installer_file_1 = f"build/app/outputs/flutter-apk/app-armeabi-v7a-release.apk"
         filename1 = os.path.basename(installer_file_1)
-        installer_file_2 = f"build/app/outputs/apk/release/app-arm64-v8a-release.apk"
+        installer_file_2 = f"build/app/outputs/flutter-apk/app-arm64-v8a-release.apk"
         filename2 = os.path.basename(installer_file_2)
-        installer_file_3 = f"build/app/outputs/apk/release/app-x86_64-release.apk"
+        installer_file_3 = f"build/app/outputs/flutter-apk/app-x86_64-release.apk"
         filename3 = os.path.basename(installer_file_3)
 
         print(f"Release v{version} created successfully")
