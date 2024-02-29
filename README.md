@@ -149,6 +149,22 @@ We understand the importance of catering to diverse audiences. With our app, add
   Now, run `flutter pub get` and codegen takes place automatically. You should find generated files in `${FLUTTER_PROJECT}/.dart_tool/flutter_gen/gen_l10n`.
   You can find more details about localization in Flutter [here](https://docs.flutter.dev/ui/accessibility-and-internationalization/internationalization#adding-your-own-localized-messages)
 
+## Releases
+
+Every time you need to create a new release, you should execute the following commands and a new [CHANGELOG.md](https://github.com/gardenifi/raspirri_app/blob/main/CHANGELOG.md) will be created:
+
+Example:
+```
+pip install bump2version
+export NEW_VERSION=2.0.1
+export PART=patch
+bump2version --new-version ${NEW_VERSION} ${PART} --config-file bumpversion.cfg
+git add bumpversion.cfg && git commit -m "Bumping version to v${NEW_VERSION}" && git push
+git tag "v${NEW_VERSION}" && git push origin "v${NEW_VERSION}"
+```
+
+then a new release will be created (from Github actions) in the releases section [assets](https://github.com/gardenifi/raspirri_server/releases) with the same version number.
+
 ## License
 This project is licensed under the MIT License. see the [LICENSE.md](https://github.com/gardenifi/raspirri_app/blob/main/LICENSE.md) file for details.
 
