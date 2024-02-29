@@ -23,7 +23,7 @@ void main() {
     testWidgets('''
       When tap on button 1
       Then should show AlertDialog
-      And if confirm 
+      And if confirm
       Then should call deleteProgram
       ''', (tester) async {
       final r = ValveRobot(tester);
@@ -39,7 +39,7 @@ void main() {
       Given the valve1 is open
       When tap on button 1
       Then should show AlertDialog
-      And if confirm 
+      And if confirm
       Then dialog close
       ''', (tester) async {
       final r = ValveRobot(tester);

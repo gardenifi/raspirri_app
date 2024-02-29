@@ -20,7 +20,7 @@ class MqttBroker {
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) return true;
-  
+
     return other is MqttBroker &&
       other.host == host &&
       other.port == port &&

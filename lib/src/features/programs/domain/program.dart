@@ -63,7 +63,7 @@ class Program {
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) return true;
-  
+
     return other is Program &&
       other.out == out &&
       other.name == name &&

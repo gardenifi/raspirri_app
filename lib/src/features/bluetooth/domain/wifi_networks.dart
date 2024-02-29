@@ -13,7 +13,7 @@ class WifiNetworks {
   WifiNetworks(this.page, this.pages, this.nets, this.hwId, this.mqttBroker);
 
   factory WifiNetworks.fromJson(dynamic json) {
-    
+
     String result = json.replaceAll("'", "\"");
     dynamic jsonObject = jsonDecode(result);
     var page = jsonObject['page'];

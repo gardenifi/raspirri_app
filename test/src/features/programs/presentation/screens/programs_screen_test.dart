@@ -23,7 +23,7 @@ void main() {
 
   group('Portrait', () {
     testWidgets(
-      '''When while fatching data from broker 
+      '''When while fatching data from broker
        Then show CircularProgressIndicator''',
       (tester) async {
         setPortraitScreen(tester);
@@ -104,7 +104,7 @@ void main() {
 
   group('Landscape', () {
     testWidgets(
-      '''When while fatching data from broker 
+      '''When while fatching data from broker
        Then show CircularProgressIndicator''',
       (tester) async {
         setLandscapeScreen(tester);

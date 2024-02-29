@@ -4,7 +4,7 @@
 ![example workflow](https://github.com/gardenifi/raspirri_app/actions/workflows/tests.yaml/badge.svg)
 [![codecov](https://codecov.io/gh/gardenifi/raspirri_app/graph/badge.svg?token=22D00TSRNJ)](https://codecov.io/gh/gardenifi/raspirri_app)
 
-  
+
 # RaspirryV1 Control Android app
 
 This app has been created to oversee the [RaspirriV1 server](https://github.com/gardenifi/raspirri_server) system through MQTT communication. Using this application, you can easily oversee and schedule irrigation activities for your garden or agricultural setup. It supports mobile phones and tablets running on Android 5 (Lollipop, API 21) and later versions. The app is developed using [Flutter](https://flutter.dev/).
@@ -35,6 +35,7 @@ This app has been created to oversee the [RaspirriV1 server](https://github.com/
 ## Prerequisites
 Before using the Flutter Irrigation Control App, ensure the following exist:
 - [Flutter and Dart](https://docs.flutter.dev/get-started/install) are installed on your development environment.
+- [Dart SDK](https://dart.dev/get-dart)
 - Compatible Android device with USB debugging enabled.
 - [RaspirriV1 server](https://github.com/gardenifi/raspirri_server/tree/main) installed and configured on a Raspberry Pi.
 - Internet and Bluetooth connectivity for both the mobile device and the Raspberry Pi.
@@ -52,17 +53,34 @@ cd raspirri_app
 ```
 flutter pub get
 ```
-4. Connect your Android device to the computer and ensure it is recognized by Flutter:
+4. Make sure flutter analyze reports no errors:
+```
+$ flutter analyze --suggestions
+
+┌───────────────────────────────────────────────────────────┐
+│ General Info                                              │
+│ [✓] App Name: new_gardenifi_app                           │
+│ [✓] Supported Platforms: android, ios, web, macos, linux, │
+│ windows                                                   │
+│ [✓] Is Flutter Package: yes                               │
+│ [✓] Uses Material Design: yes                             │
+│ [✓] Is Plugin: no                                         │
+│ [✓] Java/Gradle/Android Gradle Plugin: compatible         │
+│ java/gradle/agp                                           │
+└───────────────────────────────────────────────────────────┘
+```
+
+5. Connect your Android device to the computer and ensure it is recognized by Flutter:
 ```
 flutter devices
 ```
-5. Run the app
+6. Run the app
 ```
 flutter -v -d <your-android-device-name> run
 ```
 
 ## Build and install an apk
-You can also build an apk and install the app to your device  
+You can also build an apk and install the app to your device
 1. Clone the repository in your local machine:
 ```
 git clone https://github.com/gardenifi/raspirri_app.git
@@ -79,11 +97,11 @@ flutter pub get
 ```
 flutter build apk --split-per-abi
 ```
-This command results in three APK files:  
-    - raspirri_app/build/app/outputs/apk/release/app-armeabi-v7a-release.apk  
-    - raspirri_app/build/app/outputs/apk/release/app-arm64-v8a-release.apk  
-    - raspirri_app/build/app/outputs/apk/release/app-x86_64-release.apk    
-    
+This command results in three APK files:
+    - raspirri_app/build/app/outputs/apk/release/app-armeabi-v7a-release.apk
+    - raspirri_app/build/app/outputs/apk/release/app-arm64-v8a-release.apk
+    - raspirri_app/build/app/outputs/apk/release/app-x86_64-release.apk
+
 5. Transfer the appropriate apk (usualy v8a for newer android devices) to your device and install it. Or you can just run ``` flutter install ```
 
 
@@ -95,29 +113,29 @@ This command results in three APK files:
 
 ## Configuration
 The first time you open the app on your mobile device you will need to configure it.
-1. First connect the app to the Raspirri1V server via **Bluetooth**.  
+1. First connect the app to the Raspirri1V server via **Bluetooth**.
 <img src="https://github.com/gardenifi/raspirri_app/assets/39548053/ba91a3d0-cacd-488d-a444-8dac8d98c283" width="180" heigh="400">
 <img src="https://github.com/gardenifi/raspirri_app/assets/39548053/76940407-6a08-4854-896f-d5eb60a2986f)" width="180" heigh="400">
 <img src="https://github.com/gardenifi/raspirri_app/assets/39548053/81c3be6b-041a-4c25-8e27-2edb4ab36d2f](https://github.com/gardenifi/raspirri_app/assets/39548053/8385868d-c768-4b40-a0ab-3982f541099e)" width="180" heigh="400">
 
 
-2. Next you must connect RaspirriV1 server with **your local Wi-Fi network**, by choosing the SSID of the Wi-Fi network and inputting the corresponding passkey.  
+2. Next you must connect RaspirriV1 server with **your local Wi-Fi network**, by choosing the SSID of the Wi-Fi network and inputting the corresponding passkey.
 <img src="https://github.com/gardenifi/raspirri_app/assets/39548053/383fa09e-97a0-4d76-8c35-6bd918b61e91" width="180" heigh="400">
 <img src="https://github.com/gardenifi/raspirri_app/assets/39548053/c2bba894-c489-49fe-ae61-5956f9cd8b50)" width="180" heigh="400">
-  
-3. You are ready!!! Now you can use the app to control irrigation, set schedule and monitor system status.  
+
+3. You are ready!!! Now you can use the app to control irrigation, set schedule and monitor system status.
 
 ## Usage
-1. The first time you open the app, **no valves are enabled**. You may enable a valve on Raspberry Pi and select the corresponding port from the app.  
-   <img src="https://github.com/gardenifi/raspirri_app/assets/39548053/964d4391-7124-4a96-9d38-e052f92e727c)" width="180" heigh="400">  
-2. Then you can turn on/off the valve from the toggle button or create a scheduling program for each valve.  
-   <img src="https://github.com/gardenifi/raspirri_app/assets/39548053/3d25327a-9775-4c25-ba2a-b68d997b2e38)" width="180" heigh="400">  
-3. To create a program just select **days**, **start time** and **duration**. You may change the name of the valve if you wish.  
+1. The first time you open the app, **no valves are enabled**. You may enable a valve on Raspberry Pi and select the corresponding port from the app.
+   <img src="https://github.com/gardenifi/raspirri_app/assets/39548053/964d4391-7124-4a96-9d38-e052f92e727c)" width="180" heigh="400">
+2. Then you can turn on/off the valve from the toggle button or create a scheduling program for each valve.
+   <img src="https://github.com/gardenifi/raspirri_app/assets/39548053/3d25327a-9775-4c25-ba2a-b68d997b2e38)" width="180" heigh="400">
+3. To create a program just select **days**, **start time** and **duration**. You may change the name of the valve if you wish.
    <img src="https://github.com/gardenifi/raspirri_app/assets/39548053/04e9d243-13b3-4d05-ba30-1778eafa07d1)" width="180" heigh="400">
    <img src="https://github.com/gardenifi/raspirri_app/assets/39548053/457d5ae5-290c-4b42-9014-19faa257c65d)" width="180" heigh="400">
    <img src="https://github.com/gardenifi/raspirri_app/assets/39548053/548a35e1-283d-4155-8061-f3d806f10513)" width="180" heigh="400">
    <img src="https://github.com/gardenifi/raspirri_app/assets/39548053/84571d1f-5014-48c3-ab94-a3a8a063e675)" width="180" heigh="400">
-6. You are ready!  
+6. You are ready!
    <img src="https://github.com/gardenifi/raspirri_app/assets/39548053/a696dc30-4f0f-4c1e-9e0a-3f2f63f821fb)" width="180" heigh="400">
 
 
@@ -130,6 +148,22 @@ We understand the importance of catering to diverse audiences. With our app, add
 3. **Generate files**:
   Now, run `flutter pub get` and codegen takes place automatically. You should find generated files in `${FLUTTER_PROJECT}/.dart_tool/flutter_gen/gen_l10n`.
   You can find more details about localization in Flutter [here](https://docs.flutter.dev/ui/accessibility-and-internationalization/internationalization#adding-your-own-localized-messages)
+
+## Releases
+
+Every time you need to create a new release, you should execute the following commands and a new [CHANGELOG.md](https://github.com/gardenifi/raspirri_app/blob/main/CHANGELOG.md) will be created:
+
+Example:
+```
+pip install bump2version
+export NEW_VERSION=2.0.1
+export PART=patch
+bump2version --new-version ${NEW_VERSION} ${PART} --config-file bumpversion.cfg
+git add bumpversion.cfg && git commit -m "Bumping version to v${NEW_VERSION}" && git push
+git tag "v${NEW_VERSION}" && git push origin "v${NEW_VERSION}"
+```
+
+then a new release will be created (from Github actions) in the releases section [assets](https://github.com/gardenifi/raspirri_server/releases) with the same version number.
 
 ## License
 This project is licensed under the MIT License. see the [LICENSE.md](https://github.com/gardenifi/raspirri_app/blob/main/LICENSE.md) file for details.

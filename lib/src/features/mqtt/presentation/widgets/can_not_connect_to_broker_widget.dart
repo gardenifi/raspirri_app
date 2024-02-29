@@ -50,7 +50,7 @@ class CanNotConnectToBrokerWidget extends ConsumerWidget {
                 ),
               ),
             ),
-          ), 
+          ),
           Flexible(
             flex: 2,
             child: SingleChildScrollView(

@@ -110,7 +110,7 @@
     "placeholders": {
       "endTime":{
         "type": "String"
-      }      
+      }
     }
   },
   "nextRunText": "Next run: ",
