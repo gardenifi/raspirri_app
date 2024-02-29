@@ -55,7 +55,7 @@ jobs:
           # Add, commit, and push the changes
           git add CHANGELOG.md
           git commit -m "Auto-generated changelog"
-          git push
+          git push origin HEAD:mariosk/action
 
       - name: Upload new release to assets
         run: |
