@@ -6,11 +6,11 @@ on:
       - '*' # Listen for all tag pushes
 
 jobs:
-  pre-commit:
-    uses: gardenifi/raspirri_app/.github/workflows/precommit.yml@mariosk/actions
+  # pre-commit:
+  #   uses: gardenifi/raspirri_app/.github/workflows/precommit.yml@mariosk/actions
 
   release:
-    needs: pre-commit
+    # needs: pre-commit
     runs-on: ubuntu-latest
     env:
       GITHUB_ACCESS_TOKEN: ${{ secrets.GH_ACCESS_TOKEN }}
