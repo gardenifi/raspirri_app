@@ -1,0 +1,49 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - '*' # Listen for all tag pushes
+
+jobs:
+  pre-commit:
+    uses: gardenifi/raspirri_app/.github/workflows/precommit.yml@mariosk/actions
+
+  release:
+    needs: pre-commit
+    runs-on: ubuntu-latest
+    env:
+      GITHUB_ACCESS_TOKEN: ${{ secrets.GH_ACCESS_TOKEN }}
+
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+          ref: main
+          token: ${{ secrets.GH_ACCESS_TOKEN }}
+
+      - name: Install dependencies
+        run: |
+          git config --global user.email "tom.makrodi@gmail.com"
+          git config --global user.name "Tom Makrodimos"
+          npm install -g auto-changelog
+          python -m pip install --upgrade pip
+          pip install wheel==0.42.0
+          pip install invoke==2.2.0
+
+      - name: Generate Changelog
+        run: |
+          auto-changelog --template keepachangelog
+          # Check if there are changes to the changelog
+          if git diff --exit-code CHANGELOG.md; then
+            echo "No changes to CHANGELOG.md"
+            exit 0
+          fi
+          # Add, commit, and push the changes
+          git add CHANGELOG.md
+          git commit -m "Auto-generated changelog"
+          git push
+
+      # - name: Upload new release to assets
+      #   run: |
+      #     NEW_VERSION=$(git describe --abbrev=0 --tags | cut -d'v' -f2) INSTALLATION_PATH=./tmp invoke upload-to-github
