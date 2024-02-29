@@ -1,6 +1,6 @@
 [![](https://img.shields.io/badge/Buy%20me%20-coffee!-orange.svg?logo=buy-me-a-coffee&color=795548)](https://www.buymeacoffee.com/tommak)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](./LICENSE.md)
-[![PRs welcome!](https://img.shields.io/badge/contributions-welcome-green.svg?style=flat)](https://github.com/gardenifi/raspirri_server/issues)
+[![PRs welcome!](https://img.shields.io/badge/contributions-welcome-green.svg?style=flat)](https://github.com/gardenifi/raspirri_app/issues)
 ![example workflow](https://github.com/gardenifi/raspirri_app/actions/workflows/tests.yaml/badge.svg)
 [![codecov](https://codecov.io/gh/gardenifi/raspirri_app/graph/badge.svg?token=22D00TSRNJ)](https://codecov.io/gh/gardenifi/raspirri_app)
 
@@ -98,9 +98,9 @@ flutter pub get
 flutter build apk --split-per-abi
 ```
 This command results in three APK files:
-    - raspirri_app/build/app/outputs/apk/release/app-armeabi-v7a-release.apk
-    - raspirri_app/build/app/outputs/apk/release/app-arm64-v8a-release.apk
-    - raspirri_app/build/app/outputs/apk/release/app-x86_64-release.apk
+   - raspirri_app/build/app/outputs/apk/release/app-armeabi-v7a-release.apk
+   - raspirri_app/build/app/outputs/apk/release/app-arm64-v8a-release.apk
+   - raspirri_app/build/app/outputs/apk/release/app-x86_64-release.apk
 
 5. Transfer the appropriate apk (usualy v8a for newer android devices) to your device and install it. Or you can just run ``` flutter install ```
 
@@ -163,7 +163,7 @@ git add bumpversion.cfg && git commit -m "Bumping version to v${NEW_VERSION}" &&
 git tag "v${NEW_VERSION}" && git push origin "v${NEW_VERSION}"
 ```
 
-then a new release will be created (from Github actions) in the releases section [assets](https://github.com/gardenifi/raspirri_server/releases) with the same version number.
+then a new release will be created (from Github actions) in the releases section [assets](https://github.com/gardenifi/raspirri_app/releases) with the same version number.
 
 ## License
 This project is licensed under the MIT License. see the [LICENSE.md](https://github.com/gardenifi/raspirri_app/blob/main/LICENSE.md) file for details.
