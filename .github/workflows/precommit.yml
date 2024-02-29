@@ -15,9 +15,11 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v2
         with:
-          ref: ${{ github.ref }}
+          fetch-depth: 0
+          ref: main
+          token: ${{ secrets.GH_ACCESS_TOKEN }}
 
       - name: Install flutter
         uses: subosito/flutter-action@v2
