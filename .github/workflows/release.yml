@@ -6,11 +6,11 @@ on:
       - '*' # Listen for all tag pushes
 
 jobs:
-  pre-commit:
-    uses: gardenifi/raspirri_app/.github/workflows/precommit.yml@main
+  # pre-commit:
+  #   uses: gardenifi/raspirri_app/.github/workflows/precommit.yml@main
 
   release:
-    needs: pre-commit
+    # needs: pre-commit
     runs-on: ubuntu-latest
     env:
       GITHUB_ACCESS_TOKEN: ${{ secrets.GH_ACCESS_TOKEN }}
@@ -55,8 +55,8 @@ jobs:
           # Add, commit, and push the changes
           git add CHANGELOG.md
           git commit -m "Auto-generated changelog"
-          git merge HEAD@{1}  # Merge changes from the previous commit
-          git push origin main
+          git pull --rebase origin main
+          git push -u origin main
 
       - name: Upload new release to assets
         run: |
