@@ -155,7 +155,7 @@ Every time you need to create a new release, you should execute the following co
 
 Example:
 ```
-NEW_VERSION=2.0.5 ./new_release.sh
+NEW_VERSION=2.0.1 ./new_release.sh
 ```
 
 then a new release will be created (from Github actions) in the releases section [assets](https://github.com/gardenifi/raspirri_app/releases) with the same version number.
