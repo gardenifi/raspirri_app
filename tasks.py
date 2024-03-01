@@ -14,10 +14,6 @@ def build(ctx):
     ctx.run("echo 'Building APK files of the app...'")
     ctx.run("flutter pub get")
     ctx.run("flutter build apk --split-per-abi")
-    # This command results in three APK files:
-    # build/app/outputs/apk/release/app-armeabi-v7a-release.apk
-    # build/app/outputs/apk/release/app-arm64-v8a-release.apk
-    # build/app/outputs/apk/release/app-x86_64-release.apk
 
 
 @task
@@ -33,13 +29,13 @@ def upload_local_files(
     release_id: str,
     organization: str,
     repository_name: str,
-    filename: str,
     installer_file: str,
 ) -> None:
+    filename = os.path.basename(installer_file)
     # Upload the installer file
     upload_url = (
         f"https://uploads.github.com/repos/{organization}"
-        + f"/{repository_name}/releases/{release_id}/assets?"
+        + f"/{repository_name}/releases/{release_id}/assets?name="
         + f"{filename}"
     )
 
@@ -53,6 +49,10 @@ def upload_local_files(
             },
             data=file_content,
         )
+        print(f"Status Code: {upload_response.status_code}")
+        print(f"Headers: {upload_response.headers}")
+        print(f"Content: {upload_response.content}")
+        print(f"file_content={file_content}")
         if upload_response.status_code == 201:
             print(f"Installer {installer_file} uploaded successfully")
         else:
@@ -100,38 +100,21 @@ def upload_to_github(ctx):
     if response.status_code == 201:
 
         # Path to the generated installer files
-        installer_file_1 = f"build/app/outputs/flutter-apk/app-armeabi-v7a-release.apk"
-        filename1 = os.path.basename(installer_file_1)
-        installer_file_2 = f"build/app/outputs/flutter-apk/app-arm64-v8a-release.apk"
-        filename2 = os.path.basename(installer_file_2)
-        installer_file_3 = f"build/app/outputs/flutter-apk/app-x86_64-release.apk"
-        filename3 = os.path.basename(installer_file_3)
+        installer_files = [
+            "build/app/outputs/flutter-apk/app-armeabi-v7a-release.apk",
+            "build/app/outputs/flutter-apk/app-arm64-v8a-release.apk",
+            "build/app/outputs/flutter-apk/app-x86_64-release.apk",
+        ]
 
         print(f"Release v{version} created successfully")
         release_id = response.json()["id"]
-        upload_local_files(
-            github_token,
-            release_id,
-            organization,
-            repository_name,
-            filename1,
-            installer_file_1,
-        )
-        upload_local_files(
-            github_token,
-            release_id,
-            organization,
-            repository_name,
-            filename2,
-            installer_file_2,
-        )
-        upload_local_files(
-            github_token,
-            release_id,
-            organization,
-            repository_name,
-            filename3,
-            installer_file_3,
-        )
+        for installer_file in installer_files:
+            upload_local_files(
+                github_token,
+                release_id,
+                organization,
+                repository_name,
+                installer_file,
+            )
     else:
         print(f"Failed to create release v{version}: Response: {response}")
