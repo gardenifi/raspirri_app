@@ -10,3 +10,19 @@ repos:
     rev: 24.2.0
     hooks:
     -   id: black
+
+# -   repo: local
+#     hooks:
+#     -   id: run-analyzer
+#         name: Run flutter analyzer
+#         entry: bash -c 'flutter analyze'
+#         language: system
+#         pass_filenames: false
+
+-   repo: local
+    hooks:
+    -   id: run-unit-tests
+        name: Run unit tests
+        entry: bash -c 'flutter test --coverage'
+        language: system
+        pass_filenames: false
