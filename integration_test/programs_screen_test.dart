@@ -87,10 +87,9 @@ void main() {
        Then show CircularProgressIndicator''',
       (tester) async {
         final dpi = tester.view.devicePixelRatio;
-        tester.view.physicalSize = Size(600 * dpi, 400 * dpi);
+        tester.view.physicalSize = Size(800 * dpi, 360 * dpi);
         addTearDown(tester.view.resetPhysicalSize);
         addTearDown(tester.view.resetDevicePixelRatio);
-
         final r = ProgramRobot(tester);
         await r.pumpProgramScreen(
           controllerValue: const AsyncLoading(),
@@ -119,12 +118,10 @@ void main() {
       '''When can not connect to broker
        Then show CanNotConnectToBrokerWidget''',
       (tester) async {
-        /// this worked
         final dpi = tester.view.devicePixelRatio;
-        tester.view.physicalSize = Size(600 * dpi, 400 * dpi);
+        tester.view.physicalSize = Size(800 * dpi, 360 * dpi);
         addTearDown(tester.view.resetPhysicalSize);
         addTearDown(tester.view.resetDevicePixelRatio);
-
         final r = ProgramRobot(tester);
         await r.pumpProgramScreen(cantConnect: true);
         r.expectFindCanNotConnectToBrokerWidget();
@@ -136,10 +133,9 @@ void main() {
        Then show DeviceDisconnectedWidget''',
       (tester) async {
         final dpi = tester.view.devicePixelRatio;
-        tester.view.physicalSize = Size(600 * dpi, 400 * dpi);
+        tester.view.physicalSize = Size(800 * dpi, 360 * dpi);
         addTearDown(tester.view.resetPhysicalSize);
         addTearDown(tester.view.resetDevicePixelRatio);
-
         final r = ProgramRobot(tester);
         await r.pumpProgramScreen(statusValue: {'err': 'LOST_CONNECTION'});
         r.expectFindDeviceDisconnectedWidget();
@@ -150,11 +146,10 @@ void main() {
       '''When there is no valve registered
        Then show NoValvesWidget''',
       (tester) async {
-        final dpi = tester.view.devicePixelRatio = 3.0;
-        tester.view.physicalSize = Size(600 * dpi, 400 * dpi);
+        final dpi = tester.view.devicePixelRatio;
+        tester.view.physicalSize = Size(800 * dpi, 360 * dpi);
         addTearDown(tester.view.resetPhysicalSize);
         addTearDown(tester.view.resetDevicePixelRatio);
-
         final r = ProgramRobot(tester);
         await r.pumpProgramScreen(valvesList: []);
         r.expectFindNoValvesWidget();
@@ -165,11 +160,10 @@ void main() {
       '''When disconnect from broker
        Then show DisconnectedFromBrokerWidget''',
       (tester) async {
-        WidgetsBinding.instance.renderView.configuration =
-            new TestViewConfiguration(size: const Size(600.0, 400.0));
-        // tester.view.physicalSize = const Size(600, 400);
-        // addTearDown(tester.view.resetPhysicalSize);
-
+        final dpi = tester.view.devicePixelRatio;
+        tester.view.physicalSize = Size(800 * dpi, 360 * dpi);
+        addTearDown(tester.view.resetPhysicalSize);
+        addTearDown(tester.view.resetDevicePixelRatio);
         final r = ProgramRobot(tester);
         await r.pumpProgramScreen(disconnected: true);
         r.expectFindDisconnectedFromBroker();
@@ -179,11 +173,10 @@ void main() {
     testWidgets(
       '''Show ValvesWidget''',
       (tester) async {
-        WidgetsBinding.instance.renderView.configuration =
-            new TestViewConfiguration(size: const Size(600.0, 400.0));
-        // tester.view.physicalSize = const Size(600, 400);
-        // addTearDown(tester.view.resetPhysicalSize);
-
+        final dpi = tester.view.devicePixelRatio;
+        tester.view.physicalSize = Size(800 * dpi, 360 * dpi);
+        addTearDown(tester.view.resetPhysicalSize);
+        addTearDown(tester.view.resetDevicePixelRatio);
         final r = ProgramRobot(tester);
         await r.pumpProgramScreen();
         r.expectFindValvesWidget();

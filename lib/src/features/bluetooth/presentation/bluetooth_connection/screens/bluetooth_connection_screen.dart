@@ -19,10 +19,12 @@ class BluetoothConnectionScreen extends ConsumerStatefulWidget {
   const BluetoothConnectionScreen({super.key});
 
   @override
-  ConsumerState<ConsumerStatefulWidget> createState() => _BluetoothConnectinScreenState();
+  ConsumerState<ConsumerStatefulWidget> createState() =>
+      _BluetoothConnectinScreenState();
 }
 
-class _BluetoothConnectinScreenState extends ConsumerState<BluetoothConnectionScreen> {
+class _BluetoothConnectinScreenState
+    extends ConsumerState<BluetoothConnectionScreen> {
   bool deviceConnected = false;
   late BluetoothDevice raspiDevice;
 
@@ -44,19 +46,25 @@ class _BluetoothConnectinScreenState extends ConsumerState<BluetoothConnectionSc
     final radius = screenHeight / 4;
 
     // Variable that watch the state of the bluetooth adapter
-    final bluetoothAdapterProvider = ref.watch(bluetoothAdapterStateStreamProvider);
+    final bluetoothAdapterProvider =
+        ref.watch(bluetoothAdapterStateStreamProvider);
 
     final bool isBluetoothOn =
-        bluetoothAdapterProvider.value == BluetoothAdapterState.on ? true : false;
+        bluetoothAdapterProvider.value == BluetoothAdapterState.on
+            ? true
+            : false;
 
     // Variable that watch if device found
-    AsyncValue<BluetoothDevice?> scanResultState = ref.watch(bluetoothControllerProvider);
+    AsyncValue<BluetoothDevice?> scanResultState =
+        ref.watch(bluetoothControllerProvider);
 
-    return WillPopScope(
+    return PopScope(
       // If user press the back button during scanning stop scan and unsubscribe from stream
-      onWillPop: () async {
+      onPopInvoked: (bool didPop) async {
+        if (didPop) {
+          return;
+        }
         ref.read(bluetoothControllerProvider.notifier).stopScan();
-        return true;
       }, //stopStreamAndScan,
       child: Scaffold(
         backgroundColor: const Color.fromARGB(229, 255, 255, 255),
@@ -79,7 +87,8 @@ class _BluetoothConnectinScreenState extends ConsumerState<BluetoothConnectionSc
                             children: [
                               Flexible(
                                 flex: 2,
-                                child: buildFindingDeviceWidget(scanResultState),
+                                child:
+                                    buildFindingDeviceWidget(scanResultState),
                               ),
                               if (!deviceConnected)
                                 // A placeholder instead of button while device is not connected
@@ -114,7 +123,8 @@ class _BluetoothConnectinScreenState extends ConsumerState<BluetoothConnectionSc
     );
   }
 
-  Widget buildFindingDeviceWidget(AsyncValue<BluetoothDevice?> scanResultState) {
+  Widget buildFindingDeviceWidget(
+      AsyncValue<BluetoothDevice?> scanResultState) {
     final loc = ref.read(appLocalizationsProvider);
     return scanResultState.when(
         data: (device) {

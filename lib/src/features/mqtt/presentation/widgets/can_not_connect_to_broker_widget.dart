@@ -1,9 +1,6 @@
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:new_gardenifi_app/src/constants/gaps.dart';
 import 'package:new_gardenifi_app/src/constants/text_styles.dart';
 import 'package:new_gardenifi_app/src/localization/app_localizations_provider.dart';
 import 'package:new_gardenifi_app/utils.dart';

@@ -1,12 +1,8 @@
-import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 import 'valve_robot.dart';
 
 void main() {
-  final green = Colors.green.withOpacity(0.5);
-  const grey = Colors.grey;
-
   group('AddRemoveValveWidget', () {
     testWidgets('''
       Given that valves 1 and 3 are register

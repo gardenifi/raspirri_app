@@ -2,8 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:mocktail/mocktail.dart';
-import 'package:mqtt_client/mqtt_client.dart';
 import 'package:new_gardenifi_app/src/features/mqtt/presentation/mqtt_controller.dart';
 import 'package:new_gardenifi_app/src/features/programs/domain/cycle.dart';
 import 'package:new_gardenifi_app/src/features/programs/domain/program.dart';
@@ -15,9 +13,6 @@ import 'package:new_gardenifi_app/src/features/programs/presentation/widgets/but
 import 'package:new_gardenifi_app/src/features/programs/presentation/widgets/button_save_program.dart';
 import 'package:new_gardenifi_app/src/features/programs/presentation/widgets/day_button.dart';
 import 'package:new_gardenifi_app/src/features/programs/presentation/widgets/days_of_week_widget.dart';
-
-import '../../mocks.dart';
-import '../../provider_container.dart';
 
 class CreateProgramRobot {
   CreateProgramRobot(this.tester);
@@ -198,8 +193,8 @@ class CreateProgramRobot {
   }
 
   void expectDayButtonColor(String day, Color? color) {
-    final dayButton =
-        tester.widget<ElevatedButton>(find.widgetWithText(ElevatedButton, 'Mon'));
+    final dayButton = tester
+        .widget<ElevatedButton>(find.widgetWithText(ElevatedButton, 'Mon'));
     final states = <MaterialState>{};
     final bgColor = dayButton.style?.backgroundColor?.resolve(states);
     expect(bgColor, color);
@@ -249,5 +244,4 @@ class CreateProgramRobot {
     final cycles = container.read(cyclesOfProgramProvider.notifier).state;
     expect(cycles, []);
   }
-
 }
