@@ -1,7 +1,7 @@
 [![](https://img.shields.io/badge/Buy%20me%20-coffee!-orange.svg?logo=buy-me-a-coffee&color=795548)](https://www.buymeacoffee.com/tommak)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](./LICENSE.md)
 [![PRs welcome!](https://img.shields.io/badge/contributions-welcome-green.svg?style=flat)](https://github.com/gardenifi/raspirri_app/issues)
-![example workflow](https://github.com/gardenifi/raspirri_app/actions/workflows/tests.yaml/badge.svg)
+![example workflow](https://github.com/gardenifi/raspirri_app/actions/workflows/precommit.yaml/badge.svg)
 [![codecov](https://codecov.io/gh/gardenifi/raspirri_app/graph/badge.svg?token=22D00TSRNJ)](https://codecov.io/gh/gardenifi/raspirri_app)
 
 
@@ -20,6 +20,7 @@ This app has been created to oversee the [RaspirriV1 server](https://github.com/
   - [Configuration](#configuration)
   - [Usage](#usage)
   - [Adding Language Support](#adding-language-support)
+  - [Releases](#releases)
   - [License](#license)
   - [Acknowledgments](#acknowledgments)
   - [Contact](#contact)
