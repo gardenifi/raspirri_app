@@ -35,7 +35,6 @@ void main() {
     );
     DateTime fakeDateTime = DateTime(2023, 8, 15, 12, 30, 45, 500);
     final data = AdvertisementData(
-        appearance: 0,
         advName: 'raspirriv1',
         txPowerLevel: 2,
         connectable: true,
