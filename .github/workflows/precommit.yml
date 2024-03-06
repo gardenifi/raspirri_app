@@ -40,9 +40,13 @@ jobs:
           flutter pub get
           pre-commit run --all-files
 
+      - name: Run flutter tests with coverage
+        run: |
+          flutter test --coverage
+
       - name: Upload coverage to Codecov
         uses: codecov/codecov-action@v3.1.0
         with:
-            token: ${{ secrets.CODECOV_TOKEN }}
-            fail_ci_if_error: true # optional (default = false)
-            verbose: true # optional (default = false)
+          token: ${{ secrets.CODECOV_TOKEN }}
+          fail_ci_if_error: true # optional (default = false)
+          verbose: true # optional (default = false)
