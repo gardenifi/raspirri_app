@@ -7,7 +7,7 @@ on:
 
 jobs:
   pre-commit:
-    uses: gardenifi/raspirri_app/.github/workflows/precommit.yml@main
+    uses: gardenifi/raspirri_app/.github/workflows/build.yml@main
 
   release:
     needs: pre-commit

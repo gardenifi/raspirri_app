@@ -10,9 +10,3 @@ repos:
     rev: 24.2.0
     hooks:
     -   id: black
-
-# If we enable analyzer we need to fix all the issues to pass this step
-# -   repo: https://github.com/dluksza/flutter-analyze-pre-commit
-#     rev: "4afcaa82fc368d40d486256bf4edba329bf667bb"
-#     hooks:
-#     -   id: flutter-analyze
