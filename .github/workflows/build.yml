@@ -42,6 +42,7 @@ jobs:
 
       - name: Run flutter analyzer
         run: |
+          flutter pub get -n
           flutter analyze
 
       - name: Run flutter tests with coverage

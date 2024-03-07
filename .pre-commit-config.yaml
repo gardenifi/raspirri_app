@@ -15,7 +15,7 @@ repos:
     hooks:
     -   id: run-analyzer
         name: Run flutter analyzer
-        entry: bash -c 'flutter analyze'
+        entry: bash -c 'flutter pub get -n; flutter analyze'
         language: system
         pass_filenames: false
 
