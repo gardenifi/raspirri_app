@@ -1,3 +1,5 @@
+// ignore_for_file: void_checks
+
 import 'dart:convert';
 
 import 'package:flutter_riverpod/flutter_riverpod.dart';

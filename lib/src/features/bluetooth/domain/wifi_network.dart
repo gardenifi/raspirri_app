@@ -1,3 +1,5 @@
+// ignore_for_file: hash_and_equals
+
 class WifiNetwork {
   final int id;
   final String ssid;

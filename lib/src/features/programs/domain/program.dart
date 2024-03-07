@@ -1,3 +1,5 @@
+// ignore_for_file: non_constant_identifier_names
+
 import 'package:flutter/foundation.dart';
 
 import 'package:new_gardenifi_app/src/features/programs/domain/cycle.dart';

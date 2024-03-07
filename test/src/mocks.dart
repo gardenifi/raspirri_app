@@ -25,8 +25,7 @@ class MockScanResult extends Mock implements ScanResult {}
 class MockBluetoothController extends StateNotifier<AsyncValue<BluetoothDevice?>>
     with Mock
     implements BluetoothController {
-  MockBluetoothController(AsyncValue<BluetoothDevice?> initialValue)
-      : super(initialValue);
+  MockBluetoothController(super.initialValue);
 }
 
 class MockNavigatorObserver extends Mock implements NavigatorObserver {}
@@ -43,5 +42,5 @@ class MockMqttController extends StateNotifier<AsyncValue<void>>
     with Mock
     implements MqttController {
 
-  MockMqttController(AsyncValue<void> initialValue) : super(initialValue);
+  MockMqttController(super.initialValue);
 }

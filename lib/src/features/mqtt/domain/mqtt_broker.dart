@@ -1,3 +1,5 @@
+// ignore_for_file: hash_and_equals
+
 class MqttBroker {
   final String host;
   final int port;

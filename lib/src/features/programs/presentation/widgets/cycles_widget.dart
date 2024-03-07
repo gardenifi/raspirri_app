@@ -8,7 +8,7 @@ import 'package:new_gardenifi_app/src/constants/text_styles.dart';
 import 'package:new_gardenifi_app/src/features/programs/domain/cycle.dart';
 import 'package:new_gardenifi_app/src/features/programs/presentation/program_controller.dart';
 import 'package:new_gardenifi_app/src/features/programs/presentation/screens/create_program_screen.dart';
-import 'package:new_gardenifi_app/src/features/programs/presentation/widgets/showDuratonPicker.dart';
+import 'package:new_gardenifi_app/src/features/programs/presentation/widgets/show_duraton_picker.dart';
 import 'package:new_gardenifi_app/src/localization/app_localizations_provider.dart';
 import 'package:new_gardenifi_app/utils.dart';
 

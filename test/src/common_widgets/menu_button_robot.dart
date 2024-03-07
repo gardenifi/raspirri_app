@@ -7,7 +7,6 @@ import 'package:new_gardenifi_app/src/features/bluetooth/presentation/bluetooth_
 import 'package:new_gardenifi_app/src/features/mqtt/presentation/mqtt_controller.dart';
 import 'package:new_gardenifi_app/src/features/programs/presentation/screens/programs_screen.dart';
 import 'package:new_gardenifi_app/src/features/programs/presentation/widgets/add_remove_valve_widget.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
 import '../mocks.dart';
 

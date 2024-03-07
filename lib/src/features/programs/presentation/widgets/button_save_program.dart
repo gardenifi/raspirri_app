@@ -12,7 +12,7 @@ import 'package:new_gardenifi_app/utils.dart';
 
 class SaveProgramButton extends StatelessWidget {
   const SaveProgramButton({
-    Key? key,
+    super.key,
     required this.widget,
     required this.ref,
     required this.name,
@@ -20,7 +20,7 @@ class SaveProgramButton extends StatelessWidget {
     required this.cyclesOfCurrentProgram,
     required this.currentSchedule,
     required this.context,
-  }) : super(key: key);
+  });
 
   final CreateProgramScreen widget;
   final WidgetRef ref;
