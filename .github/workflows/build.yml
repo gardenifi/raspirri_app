@@ -40,9 +40,9 @@ jobs:
           flutter pub get
           pre-commit run --all-files --config .pre-commit-config-actions.yaml
 
-      # - name: Run flutter analyzer
-      #   run: |
-      #     flutter analyze
+      - name: Run flutter analyzer
+        run: |
+          flutter analyze
 
       - name: Run flutter tests with coverage
         run: |
